@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AndSylus</title>
+<title>AndSylus</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f4d6e2"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{--bg:#f4f4f6;--sf:#fff;--tx:#1c1c20;--tx2:#8d8d96;--ln:#ebebef;--pk:#e48fae;--gl:rgba(255,255,255,.66);--b1:#fcd9e3;--b2:#fff;--r:20px;--fs:16px;--op:100%;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);color-scheme:light}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151518;--sf:#202024;--tx:#f1f1f4;--tx2:#9b9ba4;--ln:#2c2c31;--gl:rgba(38,38,44,.62);--b1:#6a3a4e;--b2:#2b2b31;color-scheme:dark}}
@@ -23,9 +23,9 @@ main{flex:1;min-height:0;overflow-y:auto;padding-bottom:calc(100px + env(safe-ar
 .ic{width:24px;height:24px}
 .top{display:flex;align-items:center;gap:10px;padding:10px 14px;position:sticky;top:0;z-index:5;border-bottom:1px solid var(--ln)}
 #app.chat .top{position:static}
-.rb{min-width:40px;height:40px;border-radius:20px;border:1px solid var(--ln);background:var(--sf);display:grid;place-items:center;padding:0 12px;flex:none;font-size:13px}
+.rb{min-width:40px;height:40px;border-radius:20px;border:1px solid var(--ln);background:var(--sf);display:grid;place-items:center;padding:0 12px;flex:none;font-size:calc(13px*var(--tz,1))}
 .rb .ic{width:20px;height:20px}
-.tt1{flex:1;font-size:18px}.tt{flex:1;display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px}
+.tt1{flex:1;font-size:calc(18px*var(--tz,1))}.tt{flex:1;display:flex;align-items:center;gap:10px;font-weight:600;font-size:calc(17px*var(--tz,1))}
 .pad{padding:14px}
 .acts{display:flex;gap:8px;margin:10px 0}
 .acts button,.btn{flex:1;padding:10px;border-radius:14px;border:1px solid var(--ln);background:var(--sf);width:100%;margin-top:8px}
@@ -37,18 +37,18 @@ main{flex:1;min-height:0;overflow-y:auto;padding-bottom:calc(100px + env(safe-ar
 .f input[type=range]{width:44%}
 .f.col{flex-direction:column;align-items:stretch;gap:6px}
 .pr{display:flex;align-items:center;gap:12px}
-.pill{border:1px solid var(--ln);border-radius:16px;padding:6px 14px;background:var(--sf);font-size:13px}
+.pill{border:1px solid var(--ln);border-radius:16px;padding:6px 14px;background:var(--sf);font-size:calc(13px*var(--tz,1))}
 .av{border-radius:50%;object-fit:cover;flex:none;display:inline-grid;place-items:center;background:var(--b1);color:var(--tx);font-weight:600}
 .msgs{flex:1;overflow-y:auto;padding:16px 14px 8px;display:flex;flex-direction:column;gap:16px}
 .row{display:flex;gap:10px;align-items:flex-end}.row.r{flex-direction:row-reverse}
 .mw{max-width:72%;display:flex;flex-direction:column}.r .mw{align-items:flex-end}
 .bub{position:relative;padding:11px 15px;border-radius:var(--r);font-size:var(--fs);line-height:1.55;word-break:break-word;background:color-mix(in srgb,var(--b2) var(--op),transparent);border:1px solid var(--ln)}
 .bub.me{background:color-mix(in srgb,var(--b1) var(--op),transparent);border-color:transparent}
-.em{position:absolute;left:-8px;bottom:-14px;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:0 6px;font-size:14px}
-.meta{font-size:12px;color:var(--tx2);margin-top:5px;display:flex;gap:8px;align-items:center}
+.em{position:absolute;left:-8px;bottom:-14px;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:0 6px;font-size:calc(14px*var(--tz,1))}
+.meta{font-size:calc(12px*var(--tz,1));color:var(--tx2);margin-top:5px;display:flex;gap:8px;align-items:center}
 .meta a{cursor:pointer;text-decoration:underline}
 .tag{background:var(--ln);border-radius:10px;padding:0 9px}
-.sys{align-self:center;font-size:13px;color:var(--tx2);background:var(--ln);padding:5px 14px;border-radius:14px}
+.sys{align-self:center;font-size:calc(13px*var(--tz,1));color:var(--tx2);background:var(--ln);padding:5px 14px;border-radius:14px}
 .bar{display:flex;gap:8px;align-items:center;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--ln)}
 .bar input{border-radius:21px;height:42px}
 .snd{height:42px;padding:0 18px;border-radius:21px;border:1px solid var(--ln);background:var(--sf);font-weight:600;flex:none}
@@ -56,13 +56,13 @@ main{flex:1;min-height:0;overflow-y:auto;padding-bottom:calc(100px + env(safe-ar
 .duo{display:flex;align-items:center;justify-content:space-around;padding:26px 10px;border-radius:28px;border:1px solid var(--ln);background:color-mix(in srgb,var(--pk) 14%,var(--sf))}
 .who{display:flex;flex-direction:column;align-items:center;gap:4px}.who small{color:var(--tx2)}
 .duo .ic{color:var(--pk);width:30px;height:30px}
-.chip{margin:14px 4px 0;color:var(--tx2);font-size:13px;text-align:center}
+.chip{margin:14px 4px 0;color:var(--tx2);font-size:calc(13px*var(--tz,1));text-align:center}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 6px;margin-top:24px}
-.app{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:13px}
+.app{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:calc(13px*var(--tz,1))}
 .app i{width:62px;height:62px;border-radius:22px;display:grid;place-items:center;border:1px solid var(--ln)}
 .app.off{opacity:.42}
 .nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:4px;padding:6px;border-radius:30px;border:1px solid var(--ln);box-shadow:0 6px 24px rgba(0,0,0,.08);z-index:6}
-.nav button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 18px;border-radius:24px;font-size:12px;color:var(--tx2)}
+.nav button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 18px;border-radius:24px;font-size:calc(12px*var(--tz,1));color:var(--tx2)}
 .nav button.on{background:var(--sf);color:var(--tx)}
 .cv{height:260px;background:#e9d9e0 center/cover;position:relative;margin-bottom:40px}
 .pf{position:absolute;right:16px;bottom:-32px;display:flex;gap:12px}
@@ -70,11 +70,11 @@ main{flex:1;min-height:0;overflow-y:auto;padding-bottom:calc(100px + env(safe-ar
 .pf .av{border:3px solid var(--sf);border-radius:16px}
 .mc{padding:8px 16px}
 .po{display:flex;gap:12px;padding:18px 16px;background:var(--sf);border-bottom:1px solid var(--ln)}
-.pb{flex:1;min-width:0}.nm{color:var(--pk);font-size:16px}
-.pb p{font-size:16px;margin:2px 0;word-break:break-word}
-.pm{display:flex;align-items:center;gap:14px;color:var(--tx2);font-size:13px;margin-top:6px}
+.pb{flex:1;min-width:0}.nm{color:var(--pk);font-size:calc(16px*var(--tz,1))}
+.pb p{font-size:calc(16px*var(--tz,1));margin:2px 0;word-break:break-word}
+.pm{display:flex;align-items:center;gap:14px;color:var(--tx2);font-size:calc(13px*var(--tz,1));margin-top:6px}
 .pm .sp{flex:1}.pm .ic{width:20px;height:20px}.pm .on{color:var(--pk)}.pm .on svg{fill:var(--pk)}
-.lk,.cm{background:var(--bg);border-radius:10px;padding:6px 10px;margin-top:8px;font-size:14px}
+.lk,.cm{background:var(--bg);border-radius:10px;padding:6px 10px;margin-top:8px;font-size:calc(14px*var(--tz,1))}
 .lk{color:var(--pk)}.lk .ic{width:15px;height:15px;vertical-align:-2px}
 .ci{display:flex;gap:8px;margin-top:8px}.ci button{flex:none;padding:0 12px}
 .it{display:flex;gap:10px;padding:10px 12px;background:var(--sf);border-radius:14px;margin-top:8px;align-items:flex-start}
@@ -84,7 +84,7 @@ main{flex:1;min-height:0;overflow-y:auto;padding-bottom:calc(100px + env(safe-ar
 .paper small{color:var(--tx2)}.paper p{margin:8px 0;white-space:pre-wrap;word-break:break-word}
 .rep{border-top:1px dashed var(--ln);margin-top:10px;padding-top:10px}
 .empty{color:var(--tx2);text-align:center;margin:60px 20px}
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:120px;background:var(--tx);color:var(--bg);padding:8px 16px;border-radius:18px;font-size:13px;z-index:9}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:120px;background:var(--tx);color:var(--bg);padding:8px 16px;border-radius:18px;font-size:calc(13px*var(--tz,1));z-index:9}
 :root{--g1:rgba(255,255,255,.62);--g2:rgba(255,255,255,.22);--gb:rgba(255,255,255,.8);--gs:rgba(150,100,130,.16)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--g1:rgba(70,70,82,.55);--g2:rgba(40,40,50,.25);--gb:rgba(255,255,255,.16);--gs:rgba(0,0,0,.45)}body::before{opacity:.35}}
 :root[data-theme="dark"]{--g1:rgba(70,70,82,.55);--g2:rgba(40,40,50,.25);--gb:rgba(255,255,255,.16);--gs:rgba(0,0,0,.45)}
@@ -97,7 +97,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-grad
 .msgs{gap:var(--gap,16px)}.row .av{width:var(--avs,40px)!important;height:var(--avs,40px)!important}
 .meta{font-size:var(--tsz,12px);color:var(--tc,var(--tx2))}
 .grp{border-radius:20px;overflow:hidden;background:var(--sf);margin-bottom:16px;border:1px solid var(--ln)}
-.li{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;text-align:left;border-bottom:1px solid var(--ln)}.li:last-child{border:0}.li span{flex:1}.li small{display:block;color:var(--tx2);font-size:12px}.li .ic{width:22px;height:22px;color:var(--tx2)}
+.li{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;text-align:left;border-bottom:1px solid var(--ln)}.li:last-child{border:0}.li span{flex:1}.li small{display:block;color:var(--tx2);font-size:calc(12px*var(--tz,1))}.li .ic{width:22px;height:22px;color:var(--tx2)}
 .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}.ch{flex:none;padding:6px 14px;border-radius:16px;border:1px solid var(--ln);background:var(--sf)}.ch.on{background:var(--b1);border-color:transparent}
 select{font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:3px 6px;max-width:92px}
 .pv{position:sticky;top:64px;z-index:4;padding:12px;border-radius:22px;display:flex;flex-direction:column;gap:var(--gap,16px);margin-bottom:8px}
@@ -114,18 +114,18 @@ body.wp::before,body.wp::after{display:none}
 .bar .rb{min-width:36px;width:36px;height:36px;padding:0}.bar input{height:38px;min-width:0;background:rgba(255,255,255,.35);border-color:transparent}
 .bar .snd{width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:50%;background:#2f86f6;color:#fff}.bar .snd .ic{width:20px;height:20px}
 .chd{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}.pair{display:flex;align-items:center;gap:6px;color:var(--tx2)}
-.npill{padding:3px 12px;border-radius:14px;font-size:14px;display:flex;align-items:center;gap:2px}.npill .ic{width:14px;height:14px}
-.who2{font-size:12px;color:var(--tx2);margin:0 6px 3px}
+.npill{padding:3px 12px;border-radius:14px;font-size:calc(14px*var(--tz,1));display:flex;align-items:center;gap:2px}.npill .ic{width:14px;height:14px}
+.who2{font-size:calc(12px*var(--tz,1));color:var(--tx2);margin:0 6px 3px}
 .bub.me{background:color-mix(in srgb,var(--m-c,rgba(47,134,246,.9)) var(--m-o,100%),transparent);color:var(--m-fc,#fff);border-color:rgba(255,255,255,.4);border-bottom-right-radius:6px;box-shadow:inset 0 1.5px 1px rgba(255,255,255,.75),inset 0 -8px 14px rgba(0,50,150,.25),0 8px 20px rgba(47,134,246,.3)}
 .bub.sy{background:color-mix(in srgb,var(--s-c,rgba(236,236,244,.6)) var(--s-o,100%),transparent);border-bottom-left-radius:6px;box-shadow:inset 0 1.5px 1px rgba(255,255,255,.9),inset 0 -8px 14px rgba(255,255,255,.2),0 8px 20px var(--gs)}
-.q{margin-top:6px;font-size:12px;color:var(--tx2);border:1px dashed var(--tx2);border-radius:10px;padding:2px 10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.q{margin-top:6px;font-size:calc(12px*var(--tz,1));color:var(--tx2);border:1px dashed var(--tx2);border-radius:10px;padding:2px 10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pic{max-width:220px;width:100%;border-radius:14px;display:block}.bub:has(.pic){padding:4px}
 .bub.dots{display:flex;gap:5px;padding:14px 18px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--tx2);animation:bl 1s infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}@keyframes bl{50%{opacity:.25}}
 @media(prefers-reduced-motion:reduce){.dots i{animation:none}}
-.rpv{margin:0 16px 6px;padding:6px 14px;border-radius:16px;display:flex;justify-content:space-between;font-size:13px}
+.rpv{margin:0 16px 6px;padding:6px 14px;border-radius:16px;display:flex;justify-content:space-between;font-size:calc(13px*var(--tz,1))}
 #mn{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:20px;background:rgba(20,20,40,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.egrid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;padding:12px;border-radius:26px;max-height:230px;overflow-y:auto}.egrid button{font-size:25px;padding:6px 0}
-.acts2{display:flex;justify-content:space-around;padding:14px 6px;border-radius:26px}.acts2 button{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px}.acts2 .del{color:#e5484d}
+.egrid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;padding:12px;border-radius:26px;max-height:230px;overflow-y:auto}.egrid button{font-size:calc(25px*var(--tz,1));padding:6px 0}
+.acts2{display:flex;justify-content:space-around;padding:14px 6px;border-radius:26px}.acts2 button{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:calc(13px*var(--tz,1))}.acts2 .del{color:#e5484d}
 .hp{display:flex;flex-direction:column;gap:14px;padding:16px}
 .pcard{position:relative;height:300px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.75);box-shadow:0 14px 40px var(--gs)}
 .pc-bg{position:absolute;inset:0;background:linear-gradient(160deg,#cfe3ff,#f7d4e6) center/cover}
@@ -133,7 +133,7 @@ body.wp::before,body.wp::after{display:none}
 .pname{position:absolute;left:20px;right:20px;bottom:18px;border-radius:28px;display:flex;flex-direction:column;align-items:center;padding:12px}.pname small{color:var(--tx2)}
 .srch{display:flex;align-items:center;gap:10px;padding:0 18px;height:54px;border-radius:27px}.srch input{border:0;background:none;padding:0;height:100%}.srch .ic{flex:none;width:22px;height:22px}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tile{aspect-ratio:1/.78;border-radius:24px;background:center/cover;border:1px solid rgba(255,255,255,.75);display:grid;place-items:center}
-.mus{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:30px}.mus i{width:58px;height:58px;border-radius:18px;background:#16161a;color:#fff;display:grid;place-items:center;flex:none}.mus span{flex:1;min-width:0}.mus b{display:block;font-size:19px}.mus small{color:var(--tx2)}.mbtn{width:48px;height:48px;border-radius:50%;background:#16161a;color:#fff;display:grid;place-items:center;flex:none}
+.mus{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:30px}.mus i{width:58px;height:58px;border-radius:18px;background:#16161a;color:#fff;display:grid;place-items:center;flex:none}.mus span{flex:1;min-width:0}.mus b{display:block;font-size:calc(19px*var(--tz,1))}.mus small{color:var(--tx2)}.mbtn{width:48px;height:48px;border-radius:50%;background:#16161a;color:#fff;display:grid;place-items:center;flex:none}
 .hp .app i{width:66px;height:66px}
 :root{--s1:rgba(255,255,255,.6)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--s1:rgba(46,46,56,.58)}}
@@ -143,8 +143,8 @@ body{letter-spacing:.01em;-webkit-font-smoothing:antialiased}
 main{animation:vin .3s ease both}@keyframes vin{from{opacity:0;transform:translateY(8px)}}
 button{transition:transform .15s,background .2s}button:active{transform:scale(.96)}
 @media(prefers-reduced-motion:reduce){main{animation:none}button:active{transform:none}}
-.tt1{font-size:20px;font-weight:700}
-.sec{font-size:13px;color:var(--tx2);margin:26px 6px 8px;font-weight:600;letter-spacing:.06em}
+.tt1{font-size:calc(20px*var(--tz,1));font-weight:700}
+.sec{font-size:calc(13px*var(--tz,1));color:var(--tx2);margin:26px 6px 8px;font-weight:600;letter-spacing:.06em}
 input,textarea,select{background:var(--s1);border:1px solid rgba(255,255,255,.7);border-radius:14px;box-shadow:inset 0 1px 3px rgba(0,0,0,.06)}
 input:focus,textarea:focus{border-color:var(--pk);box-shadow:0 0 0 3px color-mix(in srgb,var(--pk) 25%,transparent)}
 input[type=checkbox]{appearance:none;-webkit-appearance:none;width:50px;height:30px;border-radius:15px;padding:0;border:0;background:rgba(120,120,135,.32);position:relative;transition:background .2s;flex:none;box-shadow:inset 0 1px 3px rgba(0,0,0,.15)}
@@ -166,14 +166,14 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 .grp,.po,.it,.paper,.mc{background:var(--s1);-webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 24px var(--gs)}
 .grp{border-radius:22px}.it{border-radius:16px}.paper{border-radius:22px;padding:18px 20px}
 .po{border-radius:0;border-width:0 0 1px;box-shadow:none}.mc{border-radius:0;border-width:0 0 1px;box-shadow:none}
-.paper p{font-family:"Songti SC","Noto Serif SC",STSong,serif;line-height:1.95;letter-spacing:.04em;font-size:16px}
+.paper p{font-family:"Songti SC","Noto Serif SC",STSong,serif;line-height:1.95;letter-spacing:.04em;font-size:calc(16px*var(--tz,1))}
 .li{padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.5)}
 .li>.ic:first-child{width:32px;height:32px;padding:6px;border-radius:10px;color:#fff;background:#e48fae;box-shadow:inset 0 1px 1px rgba(255,255,255,.5)}
 .li:nth-child(3n+2)>.ic:first-child{background:#7aa7f5}.li:nth-child(3n)>.ic:first-child{background:#9b8ce8}
 .ch{background:var(--s1);border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}.ch.on{background:#ee9bb9;color:#fff;border-color:transparent}
 .tag{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7)}
 .av{box-shadow:0 0 0 2px rgba(255,255,255,.85),0 4px 12px var(--gs)}.av0{width:var(--avs,40px);flex:none}
-.sys2{align-self:center;font-size:12px;color:var(--tx2);margin-top:2px}
+.sys2{align-self:center;font-size:calc(12px*var(--tz,1));color:var(--tx2);margin-top:2px}
 .row.cont{margin-top:calc(4px - var(--gap,16px))}
 .bub{padding:10px 14px;line-height:1.5}.mw{max-width:74%}.who2{font-weight:500}
 .empty{color:var(--tx2);margin:80px 24px;line-height:1.8}
@@ -182,38 +182,89 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 .po .av{border-radius:14px}.nm{font-weight:600}.pm{margin-top:8px}
 .nav button{padding:8px 0;border-radius:26px;gap:3px;font-weight:500}
 .nav button.on{color:var(--pk);background:rgba(255,255,255,.6);box-shadow:inset 0 1.5px 1px #fff,0 4px 12px var(--gs)}
-.pname b{font-size:20px;font-weight:700}.pname small{letter-spacing:.05em}
-.app{font-size:12.5px;font-weight:500}.app i{border-radius:24px}.app.off i{filter:grayscale(1)}
+.pname b{font-size:calc(20px*var(--tz,1));font-weight:700}.pname small{letter-spacing:.05em}
+.app{font-size:calc(12.5px*var(--tz,1));font-weight:500}.app i{border-radius:24px}.app.off i{filter:grayscale(1)}
 .mus b{font-weight:600}.tile{box-shadow:0 8px 20px var(--gs)}
 
 .f.stp{gap:8px}.f.stp label{flex:1;min-width:0;line-height:1.3}
-.sb{width:44px;height:44px;border-radius:14px;background:rgba(120,120,135,.14);font-size:20px;flex:none}
-.f.stp input.sn{width:66px;flex:none;text-align:center;font-size:20px;font-weight:600;border:0!important;border-bottom:2px solid var(--tx)!important;border-radius:0!important;background:none!important;padding:2px 0;box-shadow:none!important}
-em.td{font-style:normal;font-size:11px;color:var(--pk);border:1px solid var(--pk);border-radius:8px;padding:0 6px;margin-left:6px;white-space:nowrap}
-.note{font-size:13.5px;color:var(--tx2);line-height:1.8;margin:10px 4px}.note b{color:var(--tx)}
+.sb{width:44px;height:44px;border-radius:14px;background:rgba(120,120,135,.14);font-size:calc(20px*var(--tz,1));flex:none}
+.f.stp input.sn{width:66px;flex:none;text-align:center;font-size:calc(20px*var(--tz,1));font-weight:600;border:0!important;border-bottom:2px solid var(--tx)!important;border-radius:0!important;background:none!important;padding:2px 0;box-shadow:none!important}
+em.td{font-style:normal;font-size:calc(11px*var(--tz,1));color:var(--pk);border:1px solid var(--pk);border-radius:8px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.note{font-size:calc(13.5px*var(--tz,1));color:var(--tx2);line-height:1.8;margin:10px 4px}.note b{color:var(--tx)}
 
 /* ===== v6: match reference screenshots ===== */
 .cv{height:240px;margin-bottom:34px}.cvt{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:10px;align-items:center;z-index:2}
 .pf{bottom:-22px;right:14px;align-items:flex-end}.pf .av{border-radius:16px;border:3px solid var(--sf)}
 .po{border-width:0;background:var(--sf);padding:20px 16px 8px;gap:14px}.po .av{width:58px!important;height:58px!important;border-radius:50%}
-.nm{color:#e3a6ee;font-size:17px}.pb p{font-size:17px;line-height:1.75}.pm{gap:16px;margin-top:10px}.pm .ic{width:26px;height:26px}
+.nm{color:#e3a6ee;font-size:calc(17px*var(--tz,1))}.pb p{font-size:calc(17px*var(--tz,1));line-height:1.75}.pm{gap:16px;margin-top:10px}.pm .ic{width:26px;height:26px}
 .lk{background:var(--bg);border-radius:18px;padding:12px 16px}
-.bt{font-size:11px;color:var(--tx2);margin-left:10px;white-space:nowrap;display:inline-block;vertical-align:bottom}.bub.me .bt{color:rgba(255,255,255,.75)}.bub:has(.pic) .bt{display:none}
+.bt{font-size:calc(11px*var(--tz,1));color:var(--tx2);margin-left:10px;white-space:nowrap;display:inline-block;vertical-align:bottom}.bub.me .bt{color:rgba(255,255,255,.75)}.bub:has(.pic) .bt{display:none}
 .bub.sl{outline:2px solid var(--pk)}#selbar{position:fixed;left:16px;right:16px;bottom:96px;z-index:8;align-items:center}
-.acts2 button{font-size:12px}.egrid{max-height:300px}
+.acts2 button{font-size:calc(12px*var(--tz,1))}.egrid{max-height:300px}
 .srch.liq,.mus.liq,.nav.liq{background:color-mix(in srgb,var(--sf) 88%,transparent)}.srch{height:46px}
 .hp .app i.liq{background:color-mix(in srgb,var(--sf) 86%,transparent);border-radius:26px}
-.mus b{font-size:17px}.pbar{height:5px;border-radius:3px;background:rgba(120,120,135,.25);margin-top:8px;overflow:hidden}.pbar u{display:block;height:100%;width:0;background:var(--tx)}
+.mus b{font-size:calc(17px*var(--tz,1))}.pbar{height:5px;border-radius:3px;background:rgba(120,120,135,.25);margin-top:8px;overflow:hidden}.pbar u{display:block;height:100%;width:0;background:var(--tx)}
 .mpb{width:34px;height:34px;display:grid;place-items:center;flex:none}.mpb .ic{width:22px;height:22px}.mbtn{width:44px;height:44px}
 
-.mk{position:absolute;left:-6px;top:-9px;font-size:14px;line-height:1;background:var(--sf);border-radius:10px;padding:2px 5px;box-shadow:0 1px 4px var(--gs)}
+.mk{position:absolute;left:-6px;top:-9px;font-size:calc(14px*var(--tz,1));line-height:1;background:var(--sf);border-radius:10px;padding:2px 5px;box-shadow:0 1px 4px var(--gs)}
 
 #ck{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:24px;background:rgba(20,20,40,.35);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-.ckc{width:100%;max-width:360px;border-radius:32px;padding:26px 20px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}.ckc p{font-size:18px;line-height:1.6}.ckc .acts{width:100%}
+.ckc{width:100%;max-width:360px;border-radius:32px;padding:26px 20px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}.ckc p{font-size:calc(18px*var(--tz,1));line-height:1.6}.ckc .acts{width:100%}
+/* ===== v7 ===== */
+.mw{max-width:var(--bw,74%)}.bub{font-family:var(--bf,inherit)}.meta{margin-top:4px}
+.hero{display:flex;align-items:center;gap:12px;padding:9px 12px 9px 10px;border-radius:26px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 6px 20px rgba(80,100,150,.1);-webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6)}
+.hero>div{flex:1;min-width:0}.hero b{display:block;font-size:calc(16px*var(--tz,1));font-weight:700;line-height:1.3}.hero small{display:block;color:var(--tx2);font-size:calc(12px*var(--tz,1));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hero .rb{width:36px;min-width:36px;height:36px;padding:0}.hero .rb .ic{width:18px;height:18px}
+.hp{padding-top:10px}
+.cb{width:26px;height:26px;border-radius:50%;border:2px solid var(--tx2);flex:none;display:grid;place-items:center;margin-top:1px}.cb.on{background:var(--pk);border-color:var(--pk)}.cb.on::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.bulk{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.bulk .btn{flex:1;margin:0;min-width:30%;width:auto;height:42px}.bulk select{height:42px;flex:1;max-width:none}.btn.del{color:#e5484d}
+.bub.me{padding:var(--m-py,10px) var(--m-px,14px);line-height:var(--m-lh,1.5);letter-spacing:var(--m-ls,0);font-weight:var(--m-fw,400);border-bottom-right-radius:var(--m-tl,6px)}
+.bub.sy{padding:var(--s-py,10px) var(--s-px,14px);line-height:var(--s-lh,1.5);letter-spacing:var(--s-ls,0);font-weight:var(--s-fw,400);border-bottom-left-radius:var(--s-tl,6px)}
+.row.r .mw{max-width:var(--m-w,var(--bw,74%))}.row.l .mw{max-width:var(--s-w,var(--bw,74%))}
+.bub.sy.dots{padding:14px 18px}.bub.me:has(.pic),.bub.sy:has(.pic){padding:4px}
+.stg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.stc{aspect-ratio:1;border-radius:16px;background:var(--s1);border:2px solid transparent;display:grid;place-items:center;overflow:hidden;padding:6px;width:100%}.stc img{max-width:100%;max-height:100%;object-fit:contain}.stc.on{border-color:var(--pk)}
+.stw{position:relative}.xd{position:absolute;top:-5px;right:-5px;width:24px;height:24px;border-radius:50%;background:rgba(30,30,40,.75);color:#fff;font-size:calc(15px*var(--tz,1));line-height:1;z-index:1}
+.bub:has(.stk){background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important}.pic.stk{max-width:140px;border-radius:0}
+.mus b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mus small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.opt{display:flex;gap:10px;align-items:center;width:100%;padding:10px 12px;border-radius:14px;border:1px solid var(--ln);background:var(--s1);text-align:left;margin-top:8px}.opt.on{border-color:var(--pk);background:color-mix(in srgb,var(--pk) 14%,var(--s1))}.opt b{width:26px;height:26px;border-radius:50%;border:1px solid var(--tx2);display:grid;place-items:center;font-size:calc(13px*var(--tz,1));flex:none}.opt.on b{background:var(--pk);color:#fff;border-color:var(--pk)}
+#cl{position:fixed;inset:0;z-index:40;background:linear-gradient(160deg,#c9d6ff,#f5cfe2) center/cover}
+.cl-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(70px + env(safe-area-inset-top,0px)) 24px calc(44px + env(safe-area-inset-bottom,0px));background:rgba(15,15,35,.32);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff}
+.clt{display:flex;flex-direction:column;align-items:center;gap:10px}.clt b{font-size:calc(26px*var(--tz,1))}.clt span{opacity:.85}
+.clb{display:flex;gap:64px}.cbtn{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;color:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:inset 0 2px 2px rgba(255,255,255,.6),0 10px 30px rgba(0,0,0,.25)}.cbtn .ic{width:30px;height:30px}.cbtn.red{background:rgba(235,70,80,.9)}.cbtn.grn{background:rgba(52,199,89,.9)}.cbtn.sm{width:44px;height:44px;flex:none;background:rgba(255,255,255,.28)}.cbtn.sm .ic{width:22px;height:22px}
+.caps{flex:1;width:100%;overflow-y:auto;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:12px 0}.cap{max-width:80%;padding:8px 14px;border-radius:18px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4)}.cap.me{align-self:flex-end;background:rgba(47,134,246,.7)}
+.cl-i{display:flex;gap:8px;width:100%;margin-bottom:18px}.cl-i input{background:rgba(255,255,255,.25);color:#fff;border-color:rgba(255,255,255,.4)}.cl-i input::placeholder{color:rgba(255,255,255,.7)}
+.callcard{display:flex;flex-direction:column;align-items:center;gap:6px;padding:24px;border-radius:28px;margin-bottom:14px}.callcard small{color:var(--tx2)}.callcard .cbtn{margin-top:10px}
+
+/* ===== v11: display & font ===== */
+.pb p,.paper p{font-size:calc(var(--cf,15px)*var(--tz,1))!important}
 
 .vbar{display:inline-flex;align-items:center;gap:3px;min-width:104px;vertical-align:middle}.vbar .ic{width:20px;height:20px;margin-right:4px}.vbar i{display:inline-block;width:3px;border-radius:2px;background:currentColor;opacity:.7}
-.vbar i:nth-of-type(1){height:8px}.vbar i:nth-of-type(2){height:14px}.vbar i:nth-of-type(3){height:10px}.vbar i:nth-of-type(4){height:18px}.vbar i:nth-of-type(5){height:12px}.vbar i:nth-of-type(6){height:7px}.vbar small{margin-left:auto;font-size:12px;padding-left:8px}
+.vbar i:nth-of-type(1){height:8px}.vbar i:nth-of-type(2){height:14px}.vbar i:nth-of-type(3){height:10px}.vbar i:nth-of-type(4){height:18px}.vbar i:nth-of-type(5){height:12px}.vbar i:nth-of-type(6){height:7px}.vbar small{margin-left:auto;font-size:calc(12px*var(--tz,1));padding-left:8px}
 .it{flex-wrap:wrap}.vrow{flex-basis:100%;display:flex;gap:8px;align-items:center;margin-top:6px}.vrow .vbar{background:var(--bg);border:1px solid var(--ln);border-radius:16px;padding:6px 12px}
+
+/* ===== v12: liquid glass, custom nav, small chips, call mini ===== */
+:root{--gw:255,255,255}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--gw:52,52,60}}
+:root[data-theme="dark"]{--gw:52,52,60}
+.glass,.top,.bar,.nav,.rb,.snd,.pill,.egrid,.acts2,.pname,.npill,.srch,.mus,.callcard,.tile,.duo,.app i,.grp,.pv{background:linear-gradient(135deg,rgba(var(--gw),calc(var(--ga,.55)*1.15)),rgba(var(--gw),calc(var(--ga,.55)*.4)) 58%,rgba(var(--gw),calc(var(--ga,.55)*.75)));-webkit-backdrop-filter:blur(var(--gbl,24px)) saturate(1.9) brightness(1.05);backdrop-filter:blur(var(--gbl,24px)) saturate(1.9) brightness(1.05);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),inset 1px 0 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(255,255,255,.22),0 10px 30px rgba(60,60,110,.13)}
+.grp>.f,.grp>.li{background:none}
+.sys,.sys2{font-size:calc(11px*var(--tz,1));padding:3px 11px;border-radius:999px;color:var(--tx2);background:rgba(var(--gw),.3);-webkit-backdrop-filter:blur(14px) saturate(1.8);backdrop-filter:blur(14px) saturate(1.8);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 2px 8px var(--gs)}
+.nav{left:50%!important;right:auto!important;width:var(--nw,62%)!important;height:var(--nh,54px);bottom:calc(var(--nb,12px) + env(safe-area-inset-bottom,0px))!important;border-radius:var(--nr,27px);padding:4px;gap:2px}
+.nav button{flex:1;height:100%;padding:0 6px;gap:1px;border-radius:calc(var(--nr,27px) - 4px)}.nav button .ic{width:var(--ni,22px);height:var(--ni,22px)}
+body.nolbl .nav button{font-size:0!important;gap:0}
+.pf .av{width:var(--mav,54px)!important;height:var(--mav,54px)!important}.pf{bottom:-20px}
+.po .av{width:var(--mpa,40px)!important;height:var(--mpa,40px)!important}
+#app:is(.cardset,.prefs,.sprof,.sbg,.sdata,.snotif,.stheme,.sdisp,.bubble){--tz:calc(var(--tzg,1)*var(--ss,1))}
+#app:is(.cardset,.prefs,.sprof,.sbg,.sdata,.snotif,.stheme,.sdisp,.bubble) .f{padding-top:calc(10px*var(--sk,1));padding-bottom:calc(10px*var(--sk,1))}
+#app:is(.cardset,.prefs,.sprof,.sbg,.sdata,.snotif,.stheme,.sdisp,.bubble) .li{padding-top:calc(12px*var(--sk,1));padding-bottom:calc(12px*var(--sk,1))}
+#app:is(.cardset,.prefs,.sprof,.sbg,.sdata,.snotif,.stheme,.sdisp,.bubble) .sb{width:calc(44px*var(--sk,1));height:calc(44px*var(--sk,1));border-radius:calc(14px*var(--sk,1))}
+#app:is(.cardset,.prefs,.sprof,.sbg,.sdata,.snotif,.stheme,.sdisp,.bubble) .f.stp input.sn{width:calc(66px*var(--sk,1))}
+#app:is(.cardset,.prefs,.sprof,.sbg,.sdata,.snotif,.stheme,.sdisp,.bubble) :is(.sec,.note){margin-top:calc(14px*var(--sk,1))}
+.cbtn.red{background:rgba(255,59,48,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.cbtn.grn{background:rgba(52,199,89,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.cmin{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));left:16px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+#clm{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:45;display:flex;align-items:center;gap:10px;padding:5px 6px 5px 6px;border-radius:999px;background:rgba(30,30,40,.55);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 24px rgba(0,0,0,.25);color:#fff}
+#clm .mi{display:flex;align-items:center;gap:8px;padding-right:4px}#clm .mi>span{display:flex;flex-direction:column;line-height:1.2}#clm b{font-size:13px}#clm small{font-size:11px;opacity:.8}
+.cbtn.xs{width:34px;height:34px}.cbtn.xs .ic{width:18px;height:18px}
 </style></head>
 <body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="lq" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .014" numOctaves="2" seed="5" result="n"/><feGaussianBlur in="n" stdDeviation="2.5" result="b"/><feDisplacementMap in="SourceGraphic" in2="b" scale="34" xChannelSelector="R" yChannelSelector="G"/></filter></svg><div id="app"></div>
 <script>
@@ -229,7 +280,7 @@ let S=load(),cur="home";
 function load(){try{const j=JSON.parse(localStorage.getItem("andsylus")||"null");if(!j)return structuredClone(D);return{...structuredClone(D),...j,set:{...D.set,...j.set},lex:{...D.lex,...j.lex},bub:{...D.bub,...j.bub},me:{...D.me,...j.me},sy:{...D.sy,...j.sy}}}catch(e){return structuredClone(D)}}
 function save(){try{localStorage.setItem("andsylus",JSON.stringify(S))}catch(e){toast("存储空间不足")}}
 function toast(t){const e=document.createElement("div");e.className="toast";e.textContent=t;document.body.append(e);setTimeout(()=>e.remove(),1600)}
-const L=k=>S.lex[k].split(/\s+/).filter(Boolean),tm=t=>new Date(t).toLocaleTimeString("zh-CN",{hour12:false}),dk=()=>new Date().toLocaleDateString("zh-CN",{month:"long",day:"numeric"});
+const L=k=>S.lex[k].split(/\s+/).filter(Boolean),tm=t=>new Date(t).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",hour12:true}),dk=()=>new Date().toLocaleDateString("zh-CN",{month:"long",day:"numeric"});
 const cnt=()=>{const a=+S.set.min,b=Math.max(a,+S.set.max);return S.set.free?a+(Math.random()*(b-a+1)|0):1};
 function gen(n){if(!S.cards.length)return"……";const no=P(S.set.pOff),pu=L("punct"),a=[];
  for(let i=0;i<n;i++){let t=R(S.cards);if(S.set.free&&P(S.set.frag)){const f=t.split(/[，。！？、,.!?…；;\s]+/).filter(Boolean);if(f.length)t=R(f)}
@@ -247,7 +298,7 @@ const prof=(w,t)=>`<div class="f col"><div class="pr">${av(w,48)}<button class="
 const V={};
 V.home=()=>{const d=S.diary[0];return`<div class="home"><div class="duo"><div class="who">${av("sy",64)}<b>${esc(S.sy.n)}</b><small>@${esc(S.sy.id)}</small></div>${ic("heart")}<div class="who">${av("me",64)}<b>${esc(S.me.n)}</b><small>@${esc(S.me.id)}</small></div></div>
 <div class="chip">${d?`今天${d.w}，在${d.p}，心情${d.m}`:""}</div>
-<div class="grid">${[["chat","聊天"],["moments","朋友圈"],["lib","字卡库"],["mail","信箱"],["diary","日记"],["music","音乐"]].map(([k,n])=>`<button class="app" onclick="go('${k}')"><i>${ic(k)}</i>${n}</button>`).join("")}${[["phone","电话"],["group","群聊"],["quiz","问卷"],["face","表情包"]].map(([k,n])=>`<button class="app off" onclick="toast('这个页面还没做')"><i>${ic(k)}</i>${n}</button>`).join("")}</div></div>`};
+<div class="grid">${[["chat","聊天"],["moments","朋友圈"],["lib","字卡库"],["mail","信箱"],["diary","日记"],["music","音乐"],["phone","电话"],["quiz","问卷"]].map(([k,n])=>`<button class="app" onclick="go('${k}')"><i>${ic(k)}</i>${n}</button>`).join("")}${[].map(([k,n])=>`<button class="app off" onclick="toast('这个页面还没做')"><i>${ic(k)}</i>${n}</button>`).join("")}</div></div>`};
 V.chat=()=>`<div class="top"><button class="rb" aria-label="返回" onclick="go('home')">${ic("back")}</button><div class="tt">${av("sy",34)}${esc(S.sy.n)}</div><button class="rb" aria-label="设置" onclick="go('prefs')">${ic("gear")}</button></div><div class="msgs" id="msgs"></div><div class="bar"><button class="rb" aria-label="拍一拍" onclick="poke()">${ic("hand")}</button><input id="inp" placeholder="输入消息" onkeydown="if(event.key==='Enter')send()"><button class="snd" onclick="send()">发送</button></div>`;
 function drawChat(){const el=$("#msgs");if(!el)return;el.innerHTML=S.chat.length?S.chat.map((m,i)=>{
  if(m.w==="sys")return`<div class="sys">${esc(m.t)}</div>`;const me=m.w==="me";
@@ -274,7 +325,7 @@ V.diary=()=>`${hd("日记")}<div class="pad"><div class="acts"><button onclick="
 function mkDiary(){const e={d:dk(),w:R(L("weather")||["晴天"]),p:R(L("place")||["家中"]),m:R(L("mood")||["平静"]),v:R(L("event")||["喝了杯茶"])};e.t=`${e.w}。我在${e.p}，心情${e.m}。${e.v}。${gen(2)}`;return e}
 function ensureToday(){if(!S.diary.length||S.diary[0].d!==dk()){S.diary.unshift(mkDiary());save()}}
 function drawDiary(){const el=$("#dl");if(el)el.innerHTML=S.diary.map(d=>`<div class="paper"><small>${d.d}</small><p>${esc(d.t)}</p></div>`).join("")}
-V.cardset=()=>`${hd("字卡统一设置")}<div class="pad"><div class="sec">随机回复</div>${sw("set","on","随机回复开关")}${rg("set","rep","收到消息后回复概率")}${rg("set","min","最少拼接字卡数",1,6)}${rg("set","max","最多拼接字卡数",1,6)}${sw("set","free","允许自由拼接与拆词")}${rg("set","frag","片段拆分概率")}
+V.cardset=()=>`${hd("字卡统一设置","","prefs")}<div class="pad"><div class="sec">随机回复</div>${sw("set","on","随机回复开关")}${rg("set","rep","收到消息后回复概率")}${rg("set","min","最少拼接字卡数",1,6)}${rg("set","max","最多拼接字卡数",1,6)}${sw("set","free","允许自由拼接与拆词")}${rg("set","frag","片段拆分概率")}
 <div class="sec">标点</div>${rg("set","pOn","添加标点概率")}${rg("set","pOff","整句不加标点概率")}${tx("lex","punct","标点候选，空格分隔")}
 <div class="sec">Emoji</div>${rg("set","emoji","附加 Emoji 概率")}${tx("lex","emoji","Emoji 候选")}
 <div class="sec">状态标签</div>${rg("set","tag","出现概率")}${tx("lex","tag","标签候选")}
@@ -285,7 +336,7 @@ V.settings=()=>`${hd("总体设置")}<div class="pad"><div class="sec">双方资
 <div class="sec">气泡美化</div><div class="f"><label>我的气泡颜色</label><input type="color" value="${S.bub.c1||"#fcd9e3"}" oninput="sv('bub','c1',this.value)"></div><div class="f"><label>Sylus 气泡颜色</label><input type="color" value="${S.bub.c2||"#ffffff"}" oninput="sv('bub','c2',this.value)"></div>${rg("bub","op","气泡透明度",30,100)}${rg("bub","r","气泡圆角",4,30)}${rg("bub","fs","字体大小",13,22)}
 <div class="sec">数据</div><button class="btn" onclick="wipe(this)">清空全部数据</button></div>`;
 function wipe(b){if(!b.dataset.s){b.dataset.s=1;b.textContent="再点一次确认清空";return}try{localStorage.removeItem("andsylus")}catch(e){}S=structuredClone(D);fix();sty();go("home")}
-const NAV=[["home","主页","home"],["cardset","字卡设置","sl"],["prefs","总体设置","gear"]];
+const NAV=[["home","主页","home"],["moments","朋友圈","moments"],["prefs","总体设置","gear"]];
 function render(){document.body.style.backgroundImage=cur==="home"&&S.wall?`url(${S.wall})`:"none";const nav=NAV.some(n=>n[0]===cur);
  $("#app").className=cur;$("#app").innerHTML=`<main>${V[cur]()}</main>`+(nav?`<nav class="nav">${NAV.map(([k,n,i])=>`<button class="${k===cur?"on":""}" onclick="go('${k}')">${ic(i)}${n}</button>`).join("")}</nav>`:"");
  ({chat:drawChat,moments:drawMom,lib:drawLib,mail:drawMail,diary:drawDiary})[cur]?.()}
@@ -317,7 +368,7 @@ function delAll(){const q=$("#q").value.trim();S.cards=S.cards.filter(x=>!((!fc|
 function addCards(){const a=$("#nc").value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);if(!a.length)return;S.cards.push(...a.map(t=>({t,c:fc||"默认"})));$("#nc").value="";save();drawLib()}
 function imp(){const i=document.createElement("input");i.type="file";i.accept=".txt,.csv,.json";i.onchange=()=>{const f=i.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{let a=[];const d=fc||"默认";try{if(/\.json$/i.test(f.name)){const j=JSON.parse(r.result);a=(Array.isArray(j)?j:j.cards||[]).map(x=>typeof x==="string"?{t:x,c:d}:{t:x.text||x.t||"",c:x.category||x.c||d})}else{const csv=/\.csv$/i.test(f.name);a=r.result.split(/\r?\n/).map(l=>{if(!csv)return{t:l,c:d};const p=l.split(",").map(s=>s.replace(/^"|"$/g,"").trim());return{t:p[0],c:p[1]||d}})}}catch(e){}a=a.map(x=>({t:String(x.t).trim(),c:String(x.c)})).filter(x=>x.t);a.forEach(x=>{if(!S.cats.includes(x.c))S.cats.push(x.c)});S.cards.push(...a);save();drawLib();toast("导入 "+a.length+" 张")};r.readAsText(f)};i.click()}
 const li=(i,t,d,f)=>`<button class="li" onclick="${f}">${ic(i)}<span>${t}<small>${d}</small></span>${ic("fwd")}</button>`;
-V.prefs=()=>`${hd("总体设置")}<div class="pad"><div class="grp">${li("brush","气泡美化","颜色、圆角、模糊，带预览","go('bubble')")}${li("face","主题","跟随系统、浅色、深色","go('stheme')")}${li("moments","主页背景与封面","壁纸、朋友圈封面","go('sbg')")}${li("chat","聊天壁纸","更换聊天背景图","pick(d=>{S.cw=d;save();toast('已更换')},900)")}</div><div class="grp">${li("home","双方资料","昵称、ID、头像","go('sprof')")}${li("sl","自动行为","在字卡统一设置里调整","go('cardset')")}</div><div class="grp">${li("lib","数据备份与恢复","导出、导入、清空","go('sdata')")}${li("mail","通知","未做，需要后台","toast('通知要等第五阶段')")}${li("gear","运行与存储","未做，还没换 IndexedDB","toast('存储升级还没做')")}</div></div>`;
+V.prefs=()=>`${hd("总体设置")}<div class="pad"><div class="grp">${li("brush","气泡美化","颜色、圆角、模糊，带预览","go('bubble')")}${li("gear","显示与字体","整体字体大小、显示大小、正文字号","go('sdisp')")}${li("face","主题","跟随系统、浅色、深色","go('stheme')")}${li("moments","壁纸设置","主页、聊天、朋友圈封面、来电壁纸","go('sbg')")}</div><div class="grp">${li("home","双方资料","昵称、ID、头像","go('sprof')")}</div><div class="grp">${li("lib","数据备份与恢复","导出、导入、清空","go('sdata')")}${li("mail","通知与后台","提醒、屏幕常亮、安装到桌面、存储","go('snotif')")}</div></div>`;
 V.sprof=()=>`${hd("双方资料","","prefs")}<div class="pad">${prof("sy","Sylus ")}${prof("me","我的")}</div>`;
 V.stheme=()=>`${hd("主题","","prefs")}<div class="pad"><div class="grp">${[["","跟随系统"],["light","浅色"],["dark","深色"]].map(([k,n])=>`<button class="li" onclick="S.theme='${k}';save();sty();render()"><span>${n}</span>${(S.theme||"")===k?ic("check"):""}</button>`).join("")}</div></div>`;
 V.sbg=()=>`${hd("主页背景与封面","","prefs")}<div class="pad"><div class="grp"><button class="li" onclick="pick(d=>{S.wall=d;save();toast('已更换')},900)"><span>更换主页背景</span></button><button class="li" onclick="S.wall='';save();toast('已移除')"><span>移除主页背景</span></button><button class="li" onclick="pick(d=>{S.cover=d;save();toast('已更换')},900)"><span>更换朋友圈封面</span></button></div><div class="chip">来电壁纸要等电话功能做完</div></div>`;
@@ -325,7 +376,7 @@ const bs=(s,k,l,a,b)=>`<div class="f"><label>${l}</label><span>${S.bb[s][k]}</sp
 const bc=(s,k,l,d)=>`<div class="f"><label>${l}</label><input type="color" value="${S.bb[s][k]||d}" oninput="S.bb.${s}.${k}=this.value;save();sty()"></div>`;
 const bt=(k,l,a,b)=>`<div class="f"><label>${l}</label><span>${S.bb[k]}</span><input type="range" min="${a}" max="${b}" value="${S.bb[k]}" oninput="S.bb.${k}=+this.value;save();sty();this.previousElementSibling.textContent=this.value"></div>`;
 const bside=(s,t,d)=>`<div class="sec">${t}</div>${bc(s,"c","气泡颜色",d)}${bs(s,"o","透明度",20,100)}${bs(s,"r","圆角",0,30)}${bs(s,"bd","边框",0,4)}${bs(s,"sh","阴影",0,40)}${bs(s,"bl","模糊",0,30)}${bc(s,"fc","字体颜色","#1c1c20")}${bs(s,"fs","字体大小",12,22)}`;
-V.bubble=()=>`${hd("气泡美化","","prefs")}<div class="pad"><div class="pv glass"><div class="row r">${av("me",40)}<div class="mw"><div class="bub me">我的气泡预览</div><div class="meta">13:23:50</div></div></div><div class="row l">${av("sy",40)}<div class="mw"><div class="bub sy">Sylus 的气泡预览</div><div class="meta">13:23:52<span class="tag">平静</span></div></div></div></div>${bside("m","我的气泡","#2f86f6")}${bside("s","Sylus 的气泡","#ffffff")}<div class="sec">通用</div>${bt("gap","气泡间距",6,36)}${bt("av","头像大小",28,60)}${bt("ts","时间文字大小",10,16)}<div class="f"><label>时间文字颜色</label><input type="color" value="${S.bb.tc||"#8d8d96"}" oninput="S.bb.tc=this.value;save();sty()"></div></div>`;
+V.bubble=()=>`${hd("气泡美化","","prefs")}<div class="pad"><div class="pv glass"><div class="row r">${av("me",40)}<div class="mw"><div class="bub me">我的气泡预览</div><div class="meta">6:56 PM</div></div></div><div class="row l">${av("sy",40)}<div class="mw"><div class="bub sy">Sylus 的气泡预览</div><div class="meta">6:57 PM<span class="tag">平静</span></div></div></div></div>${bside("m","我的气泡","#2f86f6")}${bside("s","Sylus 的气泡","#ffffff")}<div class="sec">通用</div>${bt("gap","气泡间距",6,36)}${bt("av","头像大小",28,60)}${bt("ts","时间文字大小",10,16)}<div class="f"><label>时间文字颜色</label><input type="color" value="${S.bb.tc||"#8d8d96"}" oninput="S.bb.tc=this.value;save();sty()"></div></div>`;
 V.music=()=>`${hd("音乐")}<div class="pad"><div class="f col"><label>酷狗歌单链接</label><input id="mu" value="${esc(S.music)}" placeholder="粘贴歌单分享链接"></div><div class="acts"><button onclick="S.music=$('#mu').value.trim();save();render();toast('已保存')">保存</button>${/^https?:\/\//.test(S.music)?`<a class="btn" style="text-align:center;text-decoration:none;color:inherit;margin:0" href="${esc(S.music)}" target="_blank" rel="noopener noreferrer">打开歌单</a>`:""}</div></div>`;
 function impAll(){const i=document.createElement("input");i.type="file";i.accept=".json";i.onchange=()=>{const r=new FileReader();r.onload=()=>{try{S=JSON.parse(r.result);fix();save();sty();toast("已恢复");go("prefs")}catch(e){toast("文件格式不对")}};r.readAsText(i.files[0])};i.click()}
 function impTxt(){try{S=JSON.parse($("#bk").value);fix();save();sty();toast("已恢复");go("prefs")}catch(e){toast("内容格式不对")}}
@@ -339,9 +390,9 @@ V.home=()=>{ensureToday();const d=S.diary[0],ok=(S.music||"").startsWith("http")
 <div class="srch liq">${ic("search")}<input placeholder="搜索字卡" aria-label="搜索字卡" onkeydown="if(event.key==='Enter'){window.fcq=this.value;go('lib')}"></div>
 <div class="tiles">${[0,1,2].map(i=>(S.tiles||[])[i]?`<button class="tile" aria-label="更换图片" style="background-image:url(${S.tiles[i]})" onclick="tilePick(${i})"></button>`:`<button class="tile glass liq" aria-label="添加图片" onclick="tilePick(${i})">${ic("plus")}</button>`).join("")}</div>
 <div class="mus liq"><i>${ic("music")}</i><span onclick="go('music')"><b>${S.music?"我们的歌单":"酷狗歌单"}</b><small>${d?`今天${d.w}，在${d.p}，心情${d.m}`:"点这里填写歌单链接"}</small></span>${ok?`<a class="mbtn" aria-label="打开歌单" href="${esc(S.music)}" target="_blank" rel="noopener noreferrer">${ic("play")}</a>`:`<button class="mbtn" aria-label="设置歌单" onclick="go('music')">${ic("play")}</button>`}</div>
-<div class="grid">${[["chat","聊天"],["moments","朋友圈"],["lib","字卡库"],["mail","信箱"],["diary","日记"],["music","音乐"]].map(([k,n])=>`<button class="app" onclick="go('${k}')"><i class="liq">${ic(k)}</i>${n}</button>`).join("")}${[["phone","电话"],["group","群聊"],["quiz","问卷"],["face","表情包"]].map(([k,n])=>`<button class="app off" onclick="toast('这个页面还没做')"><i>${ic(k)}</i>${n}</button>`).join("")}</div></div>`};
-V.chat=()=>`<div class="top"><button class="rb liq" aria-label="返回" onclick="go('home')">${ic("back")}</button><div class="chd"><div class="pair">${av("me",44)}<span>&amp;</span>${av("sy",44)}</div><button class="npill liq" onclick="nickTap()">${esc(S.sy.n)}${ic("fwd")}</button></div><button class="rb liq" aria-label="电话" onclick="toast('电话还没做')">${ic("vid")}</button></div><div class="msgs" id="msgs"></div><div id="rp"></div><div class="bar liq"><button class="rb" aria-label="表情" onclick="emo()">${ic("face")}</button><button class="rb" aria-label="拍一拍" onclick="poke()">${ic("hand")}</button><button class="rb" aria-label="图片" onclick="pick(d=>pushMsg({img:d}),500)">${ic("img")}</button><input id="inp" placeholder="发消息…" aria-label="消息" onkeydown="if(event.key==='Enter')send()"><button class="snd" aria-label="发送" onclick="send()">${ic("sendi")}</button></div>`;
-function drawChat(){const el=$("#msgs");if(!el)return;el.innerHTML=(S.chat.length?S.chat.map((m,i)=>{if(m.w==="sys")return`<div class="sys">${esc(m.t)}</div>`;const me=m.w==="me";if(m.rc)return`<div class="sys">${me?"你":esc(S.sy.n)}撤回了一条消息</div>`;const rd=me?(S.chat.slice(i+1).some(x=>x.w==="sy")?"已读":"未读"):"";const gap=!i||m.ts-S.chat[i-1].ts>6e5,pv=S.chat[i-1],first=gap||pv.w!==m.w||pv.rc,last=(S.chat[i+1]||{}).w!==m.w;return`${gap?`<div class="sys2">${new Date(m.ts).toLocaleString("zh-CN",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false})}</div>`:""}<div class="row ${me?"r":"l"}${first?"":" cont"}">${last?av(m.w,40):`<span class="av0"></span>`}<div class="mw">${first?`<div class="who2">${me?"我":esc(S.sy.n)}</div>`:""}<div class="bub ${m.w}" onclick="menu(${i})">${m.mk?`<span class="mk">${esc(m.mk)}</span>`:""}${m.a?`<span class="vbar" onclick="event.stopPropagation();vplay(${m.a})">${vwave(m.d)}</span>`:m.img?`<img class="pic" src="${m.img}" alt="">`:esc(m.t)}${m.f?" ★":""}<span class="bt">${tm(m.ts).slice(0,5)}</span>${m.e?`<span class="em">${m.e}</span>`:""}</div>${m.q?`<div class="q">${esc(m.q)}</div>`:""}${(last&&rd)||m.g?`<div class="meta">${rd?`<span>${rd}</span>`:""}${m.g?`<span class="tag">${esc(m.g)}</span>`:""}</div>`:""}</div></div>`}).join(""):`<div class="empty">发一句话，他会从字卡里回你</div>`)+(typing?`<div class="row l">${av("sy",40)}<div class="mw"><div class="bub sy dots"><i></i><i></i><i></i></div></div></div>`:"");el.scrollTop=el.scrollHeight}
+<div class="grid">${[["chat","聊天"],["moments","朋友圈"],["lib","字卡库"],["mail","信箱"],["diary","日记"],["music","音乐"],["phone","电话"],["quiz","问卷"]].map(([k,n])=>`<button class="app" onclick="go('${k}')"><i class="liq">${ic(k)}</i>${n}</button>`).join("")}${[].map(([k,n])=>`<button class="app off" onclick="toast('这个页面还没做')"><i>${ic(k)}</i>${n}</button>`).join("")}</div></div>`};
+V.chat=()=>`<div class="top"><button class="rb liq" aria-label="返回" onclick="go('home')">${ic("back")}</button><div class="chd"><div class="pair">${av("me",44)}<span>&amp;</span>${av("sy",44)}</div><button class="npill liq" onclick="nickTap()">${esc(S.sy.n)}${ic("fwd")}</button></div><button class="rb liq" aria-label="电话" onclick="startCall()">${ic("vid")}</button></div><div class="msgs" id="msgs"></div><div id="rp"></div><div class="bar liq"><button class="rb" aria-label="表情" onclick="emo()">${ic("face")}</button><button class="rb" aria-label="拍一拍" onclick="poke()">${ic("hand")}</button><button class="rb" aria-label="图片" onclick="pick(d=>pushMsg({img:d}),500)">${ic("img")}</button><input id="inp" placeholder="发消息…" aria-label="消息" onkeydown="if(event.key==='Enter')send()"><button class="snd" aria-label="发送" onclick="send()">${ic("sendi")}</button></div>`;
+function drawChat(){const el=$("#msgs");if(!el)return;el.innerHTML=(S.chat.length?S.chat.map((m,i)=>{if(m.w==="sys")return`<div class="sys">${esc(m.t)}</div>`;const me=m.w==="me";if(m.rc)return`<div class="sys">${me?"你":esc(S.sy.n)}撤回了一条消息</div>`;const rd=me?(S.chat.slice(i+1).some(x=>x.w==="sy")?"已读":"未读"):"";const gap=!i||m.ts-S.chat[i-1].ts>6e5,pv=S.chat[i-1],first=gap||pv.w!==m.w||pv.rc,last=(S.chat[i+1]||{}).w!==m.w;return`${gap?`<div class="sys2">${new Date(m.ts).toLocaleString("zh-CN",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false})}</div>`:""}<div class="row ${me?"r":"l"}${first?"":" cont"}">${last?av(m.w,40):`<span class="av0"></span>`}<div class="mw">${first?`<div class="who2">${me?"我":esc(S.sy.n)}</div>`:""}<div class="bub ${m.w}" onclick="menu(${i})">${m.mk?`<span class="mk">${esc(m.mk)}</span>`:""}${m.a?`<span class="vbar" onclick="event.stopPropagation();vplay(${m.a})">${vwave(m.d)}</span>`:m.img?`<img class="pic${m.stk?" stk":""}" src="${m.img}" alt="">`:esc(m.t)}${m.f?" ★":""}${m.e?`<span class="em">${m.e}</span>`:""}</div>${m.q?`<div class="q">${esc(m.q)}</div>`:""}<div class="meta">${tm(m.ts)}${last&&rd?`<span>${rd}</span>`:""}${m.g?`<span class="tag">${esc(m.g)}</span>`:""}</div></div></div>`}).join(""):`<div class="empty">发一句话，他会从字卡里回你</div>`)+(typing?`<div class="row l">${av("sy",40)}<div class="mw"><div class="bub sy dots"><i></i><i></i><i></i></div></div></div>`:"");el.scrollTop=el.scrollHeight}
 function send(){const v=$("#inp").value.trim();if(!v)return;$("#inp").value="";pushMsg({t:v})}
 function pushMsg(o){const m={w:"me",ts:Date.now(),...o},r=S.chat[rpl];if(r)m.q=`${r.w==="me"?"我":S.sy.n}: ${(r.t||"图片").slice(0,24)}`;rpl=-1;rpDraw();if(P(S.set.emoji)&&L("emoji").length)m.e=R(L("emoji"));S.chat.push(m);save();drawChat();if(S.set.on&&P(S.set.rep)){typing=1;drawChat();setTimeout(()=>{typing=0;const x=voiceX()||{w:"sy",t:gen(cnt()),ts:Date.now()};if(P(S.set.tag)&&L("tag").length)x.g=R(L("tag"));S.chat.push(x);save();drawChat()},900+Math.random()*1100)}}
 function rpDraw(){const e=$("#rp"),r=S.chat[rpl];if(e)e.innerHTML=r?`<div class="rpv"><span>回复 ${r.w==="me"?"我":esc(S.sy.n)}：${esc((r.t||"图片").slice(0,24))}</span><button aria-label="取消回复" onclick="rpl=-1;rpDraw()">×</button></div>`:""}
@@ -364,29 +415,30 @@ const num=(k,l,td)=>`<div class="f stp"><label>${l}${td?'<em class="td">待开�
 const tabs=(a,c,v)=>`<div class="chips">${a.map((n,i)=>`<button class="ch ${i===c?"on":""}" onclick="${v}=${i};render()">${n}</button>`).join("")}</div>`;
 let ct=0,sb=0;
 function selfcheck(){const f=S.cards.reduce((n,c)=>n+c.t.split(/[，。！？、,.!?…；;\s]+/).filter(Boolean).length,0);toast(`字卡 ${S.cards.length} 张，可拆片段 ${f} 个，分类 ${S.cats.length} 个`)}
-V.cardset=()=>{let b=tabs(["聊天","信箱","朋友圈","查岗","其他"],ct,"ct");
+V.cardset=()=>{let b=tabs(["聊天","信箱","朋友圈","通话","查岗","其他"],ct,"ct");
  b+=note("以下都是 TA 随机行为的触发概率（%）：嫌频繁就把数值调小，调到 0 = 不再触发；开关关掉 = 彻底关闭该行为。修改即时保存生效。")+`<button class="btn" onclick="selfcheck()">字卡使用状态自检</button>`;
- if(ct===0){b+=grp(li("phone","通话设置","来电、接听、忙线、拒接概率","go('callset')"))+tabs(["回复与主动","主动发送","字卡与概率","拼字造句"],sb,"sb");
+ if(ct===0){b+=tabs(["回复与主动","主动发送","字卡与概率","拼字造句"],sb,"sb");
   if(sb===0)b+=sec("被动回复（TA 回你）")+grp(num("dmin","回复速度最短（秒）")+num("dmax","回复速度最长（秒）")+num("rmin","回复条数最少")+num("rmax","回复条数最多"))
    +note("<b>这两项 = 你每发 1 条消息，TA 就跟着回你几条</b>（在最少~最多之间随机）。默认 1~2 = 你发一句、TA 回一两句。调大会刷屏，不建议调太大。")
-   +sec("回复附加概率")+grp(num("rd","已读不回概率")+num("pk","拍一拍概率（回完后）")+num("stk","表情包概率",1)+num("emoji","emoji 概率")+num("img","图片概率",1)+num("vo","语音概率")+num("kao","颜文字附加概率")+num("quo","引用概率")+num("poke","进入聊天时 TA 拍一拍概率"))
+   +sec("回复附加概率")+grp(num("rd","已读不回概率")+num("pk","拍一拍概率（回完后）")+num("stk","表情包概率")+num("emoji","emoji 概率")+num("img","图片概率",1)+num("vo","语音概率")+num("kao","颜文字附加概率")+num("quo","引用概率")+num("poke","进入聊天时 TA 拍一拍概率"))
    +note("命中已读不回时，本次发送只显示已读、不再回复。带「待开发」的项目已能保存，对应功能做完后生效。")+sec("撤回")+grp(swt("rcOn","撤回后补发消息")+num("rc","撤回概率")+num("rcb","撤回补发概率"))+note("TA 发出的消息会按「撤回概率」被撤回。例：TA 发「今晚一起去吃火锅好不好」→ 撤回 → 再按「撤回补发概率」补发一条新的。关闭补发开关 = 撤回后什么都不再发。补发的不计入「回复条数」上限。")+sec("回复机制")+grp(swt("nova","连发的算一轮（nova 式回复）"))+note("<b>默认关闭 = 一切照旧</b>：你每发一条，TA 各回一批。打开后你连着说的几句并成一轮，只回复一次；你每多补一句，回复往后推 1.5 秒，最多替你多等 8 秒。");
   if(sb===1)b+=sec("主动发送（TA 找你）")+grp(swt("pro","主动发送")+num("prp","主动发送概率")+num("p1","发送间隔最短（分钟）")+num("p2","发送间隔最长（分钟）")+num("smin","发送条数最少")+num("smax","发送条数最多"))+note("主动发送是 TA 自己找你，与「回复条数」无关。<b>目前只在页面打开时运行</b>，页面关掉后要等后端（第五阶段）。")+grp(swt("dnd","免打扰（弱化主动发送）")+swt("mk","主动发送标识"))+grp(markUI())+modeUI()+note("主动发送的气泡左上角会显示这里点亮的标识。只点亮一枚 = 每条都用它；点亮多枚 = 按抽取方式随机或轮换。自带五枚只能开关；点「＋」可添加自己的（最长 4 个字符，最多 8 个）。")+sec("让对方继续说")+grp(swt("ctn1","按正常回复时间")+swt("ctn2","点顶部昵称触发")+swt("ctn3","底部聊天栏按钮触发"))+note("点聊天顶部昵称、或底部新增的按钮，会触发新一轮回复，不用你先发消息。关闭「按正常回复时间」= 点击后立即回复。打开顶部昵称触发后，进双方资料请从总体设置进入。");
   if(sb===2)b+=sec("字卡与概率")+grp(sw("set","on","随机回复开关")+num("rep","收到消息后回复概率")+num("tag","状态标签出现概率")+swt("vn","语音字卡的文字参与普通随机拼接"))+sec("候选库")+tx("lex","emoji","Emoji 候选")+tx("lex","tag","状态标签候选")+tx("lex","kao","颜文字候选，空格分隔");
   if(sb===3)b+=sec("拼字造句")+grp(sw("set","free","允许自由拼接与拆词")+num("min","最少拼接字卡数")+num("max","最多拼接字卡数")+num("frag","片段拆分概率")+num("pOn","添加标点概率")+num("pOff","整句不加标点概率"))+tx("lex","punct","标点候选，空格分隔")}
  if(ct===1)b+=sec("来信")+grp(num("mail","进入信箱时来信概率")+num("lmin","随机来信最少字卡数")+num("lmax","随机来信最多字卡数"))+note("手动指定长度时仍为 10~50 张。")+sec("联系人主动写信")+grp(swt("lw","联系人主动写信")+num("lmx","每天最多写信（封）")+num("lwp","主动写信概率")+num("lt1","最短写信时间（分钟）")+num("lt2","最长写信时间（分钟）"))+note("<b>目前只在页面打开时运行</b>，页面关掉后要等后端（第五阶段）。")+sec("联系人回信")+grp(num("rp","回信概率")+num("rt1","最短回信时间（分钟）")+num("rt2","最长回信时间（分钟）"))+note("你回信后，TA 按回信概率在这段时间后回你一封，到点时页面需要是打开的。")+sec("写信内容类型")+grp(swt("lkao","来信内容使用颜文字")+swt("lemo","来信内容使用 emoji")+swt("lstk","来信内容使用表情包",1))+sec("每周摸鱼小结")+grp(swt("wk","摸鱼小结寄信"))+note("开启后每周日 18 点后，页面打开时 TA 会寄一封「本周小结」进信箱；关闭后不再寄，主动来信和回信不受影响。");
  if(ct===2)b+=sec("联系人发朋友圈")+grp(swt("mpOn","联系人发朋友圈")+num("mpp","发布概率")+num("mp1","最短发布间隔（分钟）")+num("mp2","最长发布间隔（分钟）")+num("mc1","最少使用字卡条")+num("mc2","最多使用字卡条")+num("mom","进入朋友圈时发动态概率"))+note("<b>定时发布目前只在页面打开时运行</b>，页面关掉后要等后端（第五阶段）。")+sec("TA 发布内容类型")+grp(num("mpk","使用颜文字概率")+num("mpe","使用 emoji 概率")+num("mps","使用表情包概率",1))+note("按你的设定，TA 不发自拍和照片，所以没有「图片概率」。")+sec("数据")+grp(`<button class="li" style="color:#e5484d" onclick="two(this,'再点一次确认清空',clrMom)">${ic("trash")}<span>清除所有朋友圈数据</span></button>`);
- if(ct===3)b+=sec("查岗")+grp(swt("ck","查岗")+num("ckp","回来时被查岗概率")+num("ckm","离开至少多少分钟才查岗")+num("ckc1","最少使用字卡条")+num("ckc2","最多使用字卡条"))+sec("页面开着时随机闪出")+grp(swt("ckr","随机闪出查岗")+num("ckrp","闪出概率")+num("ckr1","最短间隔（分钟）")+num("ckr2","最长间隔（分钟）"))+note("<b>做不到的部分：</b>你在其他软件里时，网页没法在别的 App 上面弹出界面。这里的查岗只在两种情况出现：你离开 App 后再切回来，或页面开着时随机闪出。想在别的 App 里收到提醒，要做成 PWA 加后端推送（第五阶段），而且只能是系统通知，不是全屏界面。")+`<button class="btn" onclick="ckShow()">试一下查岗界面</button>`;
- if(ct===4)b+=sec("日记词库")+tx("lex","weather","天气")+tx("lex","place","地点")+tx("lex","mood","心情")+tx("lex","event","小事件");
- return`${hd("字卡统一设置")}<div class="pad">${b}<button class="btn" onclick="save();toast('已保存')">保存设置</button></div>`};
-V.callset=()=>`${hd("通话设置","","prefs")}<div class="pad">${sec("通话概率")}${grp(num("cin","来电概率")+num("ans","接听概率")+num("busy","忙线概率")+num("rej","拒接概率")+num("hang","通话中挂断概率"))}${note("<b>电话页面还没做</b>，这些数值已保存，电话功能做完后生效。")}${note("<b>【来电概率】</b>每有一次「机会」（TA 回复你一条消息、TA 主动发消息）就单独掷一次骰子，命中就来电。概率是每次机会单独算的，你聊得越多，来电越频繁。想少接就把数值调小。")}${note("<b>【数值框】</b>可直接输入小数（如 0.05），来电概率和通话中挂断概率支持 0.01 粒度。")}${note("<b>【接听 / 忙线 / 拒接】</b>你打给 TA 时，按「忙线 → 拒接 → 接听」顺序判定，先命中哪个就是哪种结果，三项都没命中就是「未接通」。")}</div>`;
-{const p=V.prefs;V.prefs=()=>p().replace('<div class="pad"><div class="grp">','<div class="pad"><div class="grp">'+li("sl","回复设置","回复速度、条数、各类概率","go('cardset')")+li("phone","通话设置","来电、接听、忙线、拒接","go('callset')")+'</div><div class="grp">')}
+ if(ct===3)b+=sec("通话概率")+grp(num("cin","来电概率")+num("ans","接听概率")+num("busy","忙线概率")+num("rej","拒接概率")+num("hang","通话中挂断概率"))+note("<b>来电概率</b>：每次 TA 回复你、或主动给你发消息，就掷一次骰子，命中就来电。<b>接听 / 忙线 / 拒接</b>：你打给 TA 时，按「忙线 → 拒接 → 接听」顺序判定，先命中哪个就是哪种结果，三项都没命中就是「未接通」。来电和挂断概率可以输入小数（如 0.05）。<b>只在页面开着时运行。</b>")+grp(li("moments","来电壁纸","在壁纸设置里添加","go('sbg')"));
+ if(ct===4)b+=sec("查岗")+grp(swt("ck","查岗")+num("ckp","回来时被查岗概率")+num("ckm","离开至少多少分钟才查岗")+num("ckc1","最少使用字卡条")+num("ckc2","最多使用字卡条"))+sec("页面开着时随机闪出")+grp(swt("ckr","随机闪出查岗")+num("ckrp","闪出概率")+num("ckr1","最短间隔（分钟）")+num("ckr2","最长间隔（分钟）"))+note("<b>做不到的部分：</b>你在其他软件里时，网页没法在别的 App 上面弹出界面。这里的查岗只在两种情况出现：你离开 App 后再切回来，或页面开着时随机闪出。想在别的 App 里收到提醒，要做成 PWA 加后端推送（第五阶段），而且只能是系统通知，不是全屏界面。")+`<button class="btn" onclick="ckShow()">试一下查岗界面</button>`;
+ if(ct===5)b+=sec("日记词库")+tx("lex","weather","天气")+tx("lex","place","地点")+tx("lex","mood","心情")+tx("lex","event","小事件");
+ return`${hd("字卡统一设置","","prefs")}<div class="pad">${b}<button class="btn" onclick="save();toast('已保存')">保存设置</button></div>`};
+V.callset=()=>`${hd("通话设置","","prefs")}<div class="pad">${sec("通话概率")}${grp(num("cin","来电概率")+num("ans","接听概率")+num("busy","忙线概率")+num("rej","拒接概率")+num("hang","通话中挂断概率"))}${note("在「电话」页和聊天右上角的电话按钮里生效。")}${note("<b>【来电概率】</b>每有一次「机会」（TA 回复你一条消息、TA 主动发消息）就单独掷一次骰子，命中就来电。概率是每次机会单独算的，你聊得越多，来电越频繁。想少接就把数值调小。")}${note("<b>【数值框】</b>可直接输入小数（如 0.05），来电概率和通话中挂断概率支持 0.01 粒度。")}${note("<b>【接听 / 忙线 / 拒接】</b>你打给 TA 时，按「忙线 → 拒接 → 接听」顺序判定，先命中哪个就是哪种结果，三项都没命中就是「未接通」。")}</div>`;
+{const p=V.prefs;V.prefs=()=>p().replace('<div class="pad"><div class="grp">','<div class="pad"><div class="grp">'+li("sl","字卡与随机设置","回复、自动行为、来信、朋友圈、通话、查岗","go('cardset')")+'</div><div class="grp">')}
 mkLetter=function(v){const n=v>=10&&v<=50?v:ri(S.set.lmin,Math.max(S.set.lmin,S.set.lmax));return{t:gen(n),ts:Date.now(),n,re:""}};
 pushMsg=function(o){const m={w:"me",ts:Date.now(),...o},r=S.chat[rpl];if(r)m.q=`${r.w==="me"?"我":S.sy.n}: ${(r.t||"图片").slice(0,24)}`;rpl=-1;rpDraw();if(P(S.set.emoji)&&L("emoji").length)m.e=R(L("emoji"));S.chat.push(m);save();drawChat();
  if(!S.set.on||!P(S.set.rep)||P(S.set.rd))return;
  const n=ri(S.set.rmin,Math.max(S.set.rmin,S.set.rmax)),run=k=>{typing=1;drawChat();setTimeout(()=>{typing=0;const x=voiceX()||{w:"sy",t:gen(cnt()),ts:Date.now()};
   if(!x.a&&L("kao").length&&P(S.set.kao))x.t+=" "+R(L("kao"));if(k===0&&m.t&&P(S.set.quo))x.q="我: "+m.t.slice(0,24);if(P(S.set.tag)&&L("tag").length)x.g=R(L("tag"));S.chat.push(x);
-  if(k+1>=n&&P(S.set.pk))S.chat.push({w:"sys",t:`${S.sy.n}拍了拍你`,ts:Date.now()});save();drawChat();if(k+1<n)run(k+1)},Math.max(600,ri(S.set.dmin,Math.max(S.set.dmin,S.set.dmax))*1000))};run(0)};
+  if(k+1>=n&&IL.sticker.length&&P(S.set.stk))S.chat.push({w:"sy",img:R(IL.sticker).u,stk:1,ts:Date.now()});if(k+1>=n&&P(S.set.pk))S.chat.push({w:"sys",t:`${S.sy.n}拍了拍你`,ts:Date.now()});save();drawChat();if(k+1<n)run(k+1)},Math.max(600,ri(S.set.dmin,Math.max(S.set.dmin,S.set.dmax))*1000))};run(0)};
 
 Object.assign(I,{cam:'<path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',prv:'<path d="M7 5v14M18 6l-8 6 8 6z"/>',nxt:'<path d="M17 5v14M6 6l8 6-8 6z"/>',pause:'<path d="M8 5v14M16 5v14" stroke-width="2.6"/>'});
 let mcO=0,sel=null;
@@ -400,7 +452,7 @@ menu=function(i){if(sel){sel.has(i)?sel.delete(i):sel.add(i);selUI();return}cons
 {const g=go;go=function(v){sel=null;const b=$("#selbar");b&&b.remove();g(v)}}
 /* local music player (IndexedDB) */
 const AU=new Audio();let SL=[],ci=-1,cu="";
-const idb=()=>new Promise((ok,no)=>{const r=indexedDB.open("andsylus",2);r.onupgradeneeded=()=>{const d=r.result;["songs","voices"].forEach(n=>{if(!d.objectStoreNames.contains(n))d.createObjectStore(n,{keyPath:"id",autoIncrement:true})})};r.onsuccess=()=>ok(r.result);r.onerror=no});
+const idb=()=>new Promise((ok,no)=>{const r=indexedDB.open("andsylus",3);r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains("songs"))d.createObjectStore("songs",{keyPath:"id",autoIncrement:true});if(!d.objectStoreNames.contains("imgs"))d.createObjectStore("imgs",{keyPath:"id",autoIncrement:true});if(!d.objectStoreNames.contains("voices"))d.createObjectStore("voices",{keyPath:"id",autoIncrement:true})};r.onsuccess=()=>ok(r.result);r.onerror=no});
 async function loadSongs(){try{const d=await idb();SL=await new Promise(ok=>{const q=d.transaction("songs").objectStore("songs").getAll();q.onsuccess=()=>ok(q.result);q.onerror=()=>ok([])})}catch(e){SL=[]}if(cur==="home"||cur==="music")render()}
 async function addSongs(fs){try{const d=await idb(),t=d.transaction("songs","readwrite");for(const f of fs)t.objectStore("songs").add({n:f.name.replace(/\.[^.]+$/,""),b:f});await new Promise(ok=>t.oncomplete=ok)}catch(e){toast("保存失败")}loadSongs()}
 async function delSong(id){try{const d=await idb(),t=d.transaction("songs","readwrite");t.objectStore("songs").delete(id);await new Promise(ok=>t.oncomplete=ok)}catch(e){}ci=-1;AU.pause();loadSongs()}
@@ -421,7 +473,8 @@ const markUI=()=>`<div class="f col"><label>标识</label><div class="chips" sty
 const modeUI=()=>`<div class="chips"><button class="ch ${S.set.mm?"":"on"}" onclick="sv('set','mm',0);render()">随机抽取</button><button class="ch ${S.set.mm?"on":""}" onclick="sv('set','mm',1);render()">按顺序轮换</button></div>`;
 function mkT(i){S.set.marks[i].on^=1;save();render()}
 function mkD(i){S.set.marks.splice(i,1);save();render()}
-function mkA(){const t=(prompt("输入标识（最长 4 个字符，emoji 也可以）")||"").trim().slice(0,4);if(t&&S.set.marks.length<13){S.set.marks.push({t,on:1});save();render()}}
+function mkA(){ov(`<div class="egrid liq" style="display:block"><input id="mki" maxlength="4" placeholder="标识，最长 4 个字符，emoji 也可以" aria-label="标识"><button class="btn" onclick="mkOk()">添加</button></div>`)}
+function mkOk(){const t=$("#mki").value.trim().slice(0,4);$("#mn").remove();if(t&&S.set.marks.length<13){S.set.marks.push({t,on:1});save();render()}}
 function pickMark(){const on=S.set.marks.filter(m=>m.on);if(!S.set.mk||!on.length)return"";if(S.set.mm){S.mi=((S.mi||0)+1)%on.length;return on[S.mi].t}return R(on).t}
 let rtm=null,rd0=0;
 function replyRound(m,imm,force){if(!force&&(!S.set.on||!P(S.set.rep)||P(S.set.rd)))return;
@@ -429,7 +482,7 @@ function replyRound(m,imm,force){if(!force&&(!S.set.on||!P(S.set.rep)||P(S.set.r
  run=k=>{typing=1;drawChat();setTimeout(()=>{typing=0;const x=voiceX()||{w:"sy",t:gen(cnt()),ts:Date.now()};
   if(!x.a&&L("kao").length&&P(S.set.kao))x.t+=" "+R(L("kao"));if(k===0&&m&&m.t&&P(S.set.quo))x.q="我: "+m.t.slice(0,24);if(P(S.set.tag)&&L("tag").length)x.g=R(L("tag"));S.chat.push(x);
   if(P(S.set.rc))setTimeout(()=>{x.rc=1;if(S.set.rcOn&&P(S.set.rcb))S.chat.push({w:"sy",t:gen(cnt()),ts:Date.now()});save();drawChat()},1500);
-  if(k+1>=n&&P(S.set.pk))S.chat.push({w:"sys",t:`${S.sy.n}拍了拍你`,ts:Date.now()});save();drawChat();if(k+1<n)run(k+1)},dl())};run(0)}
+  if(k+1>=n&&IL.sticker.length&&P(S.set.stk))S.chat.push({w:"sy",img:R(IL.sticker).u,stk:1,ts:Date.now()});if(k+1>=n&&P(S.set.pk))S.chat.push({w:"sys",t:`${S.sy.n}拍了拍你`,ts:Date.now()});save();drawChat();if(k+1<n)run(k+1)},dl())};run(0)}
 pushMsg=function(o){const m={w:"me",ts:Date.now(),...o},r=S.chat[rpl];if(r)m.q=`${r.w==="me"?"我":S.sy.n}: ${(r.t||"图片").slice(0,24)}`;rpl=-1;rpDraw();if(P(S.set.emoji)&&L("emoji").length)m.e=R(L("emoji"));S.chat.push(m);save();drawChat();
  if(S.set.nova){const now=Date.now();if(!rtm)rd0=now;clearTimeout(rtm);rtm=setTimeout(()=>{rtm=null;replyRound(m)},Math.max(0,Math.min(1500,rd0+8000-now)));return}
  replyRound(m)};
@@ -457,7 +510,153 @@ let away=0;
 function ckShow(){if($("#ck"))return;const t=gen(ri(S.set.ckc1,Math.max(S.set.ckc1,S.set.ckc2)));S.chat.push({w:"sy",t,ts:Date.now(),g:"查岗"});save();if(cur==="chat")drawChat();const o=document.createElement("div");o.id="ck";o.innerHTML=`<div class="ckc glass">${av("sy",72)}<b>${esc(S.sy.n)} 在查岗</b><p>${esc(t)}</p><input id="cki" placeholder="回他一句…" onkeydown="if(event.key==='Enter')ckGo()"><div class="acts"><button onclick="ckGo()">发送</button><button onclick="$('#ck').remove()">先不理</button></div></div>`;document.body.append(o)}
 function ckGo(){const v=$("#cki").value.trim();$("#ck").remove();go("chat");if(v)pushMsg({t:v})}
 document.addEventListener("visibilitychange",()=>{if(document.hidden){away=Date.now();return}if(S.set.ck&&away&&Date.now()-away>=S.set.ckm*6e4&&P(S.set.ckp))ckShow();away=0});
+/* ===== v7 JS ===== */
+Object.assign(I,{full:'<path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4"/>'});
+const _fx=fix;fix=function(){_fx();S.bb.bw=S.bb.bw||74;S.bb.ff=S.bb.ff||""};fix();
+const _sty=sty;sty=function(){_sty();const r=document.documentElement.style;r.setProperty("--bw",(S.bb.bw||74)+"%");S.bb.ff?r.setProperty("--bf",S.bb.ff):r.removeProperty("--bf")};
+function fs(){const d=document,e=d.documentElement;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d);return}const q=e.requestFullscreen||e.webkitRequestFullscreen;if(!q){toast("这个浏览器不支持全屏");return}Promise.resolve(q.call(e)).catch(()=>toast("当前页面不允许全屏，可以在浏览器菜单选「添加到主屏幕」"))}
+{const h=V.home;V.home=()=>{const d=S.diary[0];return h().replace(/<div class="pcard">[\s\S]*?<\/div><\/div>\s*<div class="srch/,()=>`<div class="hero">${av("sy",48)}<div><b>${esc(S.sy.n)}</b><small>@${esc(S.sy.id)}${d?`　今天${d.w}，在${d.p}`:""}</small></div><button class="rb" aria-label="全屏" onclick="fs()">${ic("full")}</button></div><div class="srch`)}}
+{const p=V.prefs;V.prefs=()=>p().replace('<div class="pad"><div class="grp">',()=>'<div class="pad"><div class="grp">'+li("full","全屏","进入或退出全屏显示","fs()"))}
+const FF=[["","默认"],['"Songti SC","Noto Serif SC",STSong,serif',"宋体"],['"Kaiti SC",STKaiti,"Noto Serif SC",serif',"楷体"],['"Yuanti SC","Noto Sans SC",sans-serif',"圆体"],["ui-monospace,Menlo,monospace","等宽"]];
+function setFF(i){S.bb.ff=FF[i][0];save();sty();document.querySelectorAll(".ffc").forEach((b,k)=>b.classList.toggle("on",k===i))}
+{const b=V.bubble;V.bubble=()=>b().replace('<div class="sec">通用</div>',()=>'<div class="sec">通用</div>'+bt("bw","气泡最大宽度（%）",50,92)+`<div class="f col"><label>气泡字体</label><div class="chips" style="flex-wrap:wrap">${FF.map((f,i)=>`<button class="ch ffc ${S.bb.ff===f[0]?"on":""}" onclick="setFF(${i})">${f[1]}</button>`).join("")}</div></div>`)}
+let bm=0,bsl=new Set();
+const flt=()=>{const q=(($("#q")||{}).value||"").trim(),a=[];S.cards.forEach((x,i)=>{if((!fc||x.c===fc)&&(!q||x.t.includes(q)))a.push(i)});return a};
+V.lib=()=>{bm=0;bsl.clear();return`${hd("字卡库")}<div class="pad"><div class="cnt" id="cn"></div><div class="chips" id="ch"></div><div class="acts"><input id="nk" placeholder="新分类名称"><button onclick="addCat()">新建分类</button></div><textarea id="nc" placeholder="批量添加：一行一张，放进当前分类，重复的自动跳过"></textarea><div class="acts"><button onclick="addCards()">批量添加</button><button onclick="imp()">导入 TXT / CSV / JSON</button><button onclick="vimp()">导入语音条</button></div><input id="q" value="${esc(takeQ())}" placeholder="搜索字卡" oninput="drawLib()"><div class="bulk" id="bk2"></div><div id="ll"></div></div>`};
+function drawLib(){if(!$("#ll"))return;const a=flt(),q=$("#q").value.trim();
+ $("#cn").textContent=`共 ${S.cards.length} 张`+(fc||q?`，当前 ${a.length} 张`:"")+(bm?`，已选 ${bsl.size} 张`:"");
+ $("#ch").innerHTML=["",...S.cats].map((c,i)=>`<button class="ch ${c===fc?"on":""}" onclick="setFc(${i-1})">${esc(c)||"全部"} ${c?S.cards.filter(x=>x.c===c).length:S.cards.length}</button>`).join("");
+ $("#bk2").innerHTML=bm?`<button class="btn" onclick="lbAll()">全选当前 ${a.length} 张</button><button class="btn" onclick="bsl.clear();drawLib()">取消选择</button><select aria-label="移动到分类" onchange="lbMove(this.value)"><option value="">移动到…</option>${S.cats.map(c=>`<option>${esc(c)}</option>`).join("")}</select><button class="btn del" onclick="two(this,'再点一次，删除 '+bsl.size+' 张',lbDel)">删除选中</button><button class="btn" onclick="bm=0;bsl.clear();drawLib()">完成</button>`:`<button class="btn" onclick="bm=1;drawLib()">批量选择 / 删除</button>`;
+ $("#ll").innerHTML=(fc&&fc!=="默认"&&!bm?`<button class="btn" onclick="two(this,'再点一次，卡片并入默认',delCat)">删除分类 ${esc(fc)}</button>`:"")+a.slice(0,200).map(i=>bm?`<div class="it"><button class="cb ${bsl.has(i)?"on":""}" aria-label="选择" onclick="lbTog(${i})"></button><span onclick="lbTog(${i})">${esc(S.cards[i].t)}</span></div>`:`<div class="it"><span>${esc(S.cards[i].t)}</span><select onchange="S.cards[${i}].c=this.value;save();drawLib()">${S.cats.map(c=>`<option ${c===S.cards[i].c?"selected":""}>${esc(c)}</option>`).join("")}</select><button aria-label="删除" onclick="cdel(${i})">${ic("trash")}</button>${vrow(S.cards[i],i)}</div>`).join("")+(a.length>200?`<div class="note">只显示前 200 张，批量操作仍作用于全部 ${a.length} 张。</div>`:"")}
+function lbTog(i){bsl.has(i)?bsl.delete(i):bsl.add(i);drawLib()}
+function lbAll(){flt().forEach(i=>bsl.add(i));drawLib()}
+function lbMove(c){if(!c||!bsl.size)return;bsl.forEach(i=>{S.cards[i].c=c});save();toast("已移动 "+bsl.size+" 张");bsl.clear();drawLib()}
+function lbDel(){const n=bsl.size;bsl.forEach(i=>{const c=S.cards[i];c&&c.a&&vdel(c.a)});S.cards=S.cards.filter((_,i)=>!bsl.has(i));bsl.clear();save();drawLib();toast("已删除 "+n+" 张")}
+function addCards(){const have=new Set(S.cards.map(x=>x.t)),a=[...new Set($("#nc").value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean))].filter(t=>!have.has(t));if(!a.length){toast("没有新字卡，空行和重复会被跳过");return}S.cards.push(...a.map(t=>({t,c:fc||"默认"})));$("#nc").value="";save();drawLib();toast("已添加 "+a.length+" 张")}
+/* ===== v8: bubble size details ===== */
+const _fx2=fix;fix=function(){_fx2();for(const k of["m","s"]){const o=S.bb[k];o.px??=14;o.py??=10;o.w??=0;o.lh??=15;o.ls??=0;o.fw??=4;o.tl??=6}};fix();
+const _sty2=sty;sty=function(){_sty2();const r=document.documentElement.style;for(const k of["m","s"]){const o=S.bb[k],st=(n,v)=>r.setProperty(`--${k}-${n}`,v);st("px",o.px+"px");st("py",o.py+"px");st("lh",o.lh/10);st("ls",o.ls/10+"px");st("fw",o.fw*100);st("tl",o.tl+"px");o.w?st("w",o.w+"%"):r.removeProperty(`--${k}-w`)}};
+const szSec=(s,t)=>sec(t)+bs(s,"w","最大宽度（%，0 = 跟随通用）",0,95)+bs(s,"px","左右内边距",6,30)+bs(s,"py","上下内边距",4,20)+bs(s,"lh","行高（15 = 1.5 倍）",10,24)+bs(s,"ls","字间距（0.1px）",-5,30)+bs(s,"fw","字重（3 细，4 常规，6 粗）",3,7)+bs(s,"tl","尾角圆角",0,20);
+function szReset(){for(const k of["m","s"])Object.assign(S.bb[k],{px:14,py:10,w:0,lh:15,ls:0,fw:4,tl:6});Object.assign(S.bb,{bw:74,gap:16,av:40});save();sty();render();toast("已恢复默认尺寸")}
+{const b=V.bubble;V.bubble=()=>b().replace('<div class="sec">通用</div>',()=>szSec("m","我的气泡尺寸")+szSec("s","Sylus 的气泡尺寸")+'<div class="sec">通用</div>').replace(/<\/div>\s*$/,()=>'<button class="btn" onclick="szReset()">恢复尺寸默认值</button></div>')}
+/* ===== v9: IndexedDB images, stickers, avatars, wallpapers, notifications ===== */
+Object.assign(D.set,{nt:1,ntf:0,ntm:1,ntl:1,ntp:1,wl:0,avs:0,avm:0,av1:30,av2:240});S.set={...D.set,...S.set};Object.assign(M,{av1:[1,10080],av2:[1,10080]});
+const IL={sticker:[],avsy:[],avme:[],callwall:[]};
+async function loadImgs(){try{const d=await idb(),all=await new Promise(ok=>{const q=d.transaction("imgs").objectStore("imgs").getAll();q.onsuccess=()=>ok(q.result);q.onerror=()=>ok([])});for(const k in IL)IL[k]=all.filter(x=>x.k===k)}catch(e){}if(["lib","sprof","sbg"].includes(cur))render()}
+async function addImgs(k,us){try{const d=await idb(),t=d.transaction("imgs","readwrite");us.forEach(u=>t.objectStore("imgs").add({k,u}));await new Promise(ok=>t.oncomplete=ok);toast("已添加 "+us.length+" 张")}catch(e){toast("保存失败")}loadImgs()}
+async function delImgs(ids){try{const d=await idb(),t=d.transaction("imgs","readwrite");ids.forEach(i=>t.objectStore("imgs").delete(i));await new Promise(ok=>t.oncomplete=ok)}catch(e){}loadImgs()}
+function pickMany(cb,w=480){const i=document.createElement("input");i.type="file";i.accept="image/*";i.multiple=true;i.onchange=async()=>{const out=[];for(const f of i.files){try{out.push(await new Promise((ok,no)=>{const fr=new FileReader();fr.onload=()=>{if(f.type==="image/gif"&&f.size<4e5)return ok(fr.result);const im=new Image();im.onload=()=>{const k=Math.min(1,w/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);ok(c.toDataURL(f.type==="image/png"&&f.size<2e5?"image/png":"image/jpeg",.85))};im.onerror=no;im.src=fr.result};fr.onerror=no;fr.readAsDataURL(f)}))}catch(e){}}if(out.length)cb(out);else toast("没有读取到图片")};i.click()}
+let sm=0,ssl=new Set();
+function stTog(id){ssl.has(id)?ssl.delete(id):ssl.add(id);render()}
+function stDel(){delImgs([...ssl]);ssl.clear();sm=0}
+function stickerUI(){const a=IL.sticker;return`<div class="acts"><button onclick="pickMany(u=>addImgs('sticker',u),360)">添加表情包（可多选）</button></div>${a.length?`<div class="bulk">${sm?`<button class="btn" onclick="ssl=new Set(IL.sticker.map(x=>x.id));render()">全选</button><button class="btn" onclick="ssl.clear();render()">取消选择</button><button class="btn del" onclick="two(this,'再点一次，删除 '+ssl.size+' 张',stDel)">删除选中</button><button class="btn" onclick="sm=0;ssl.clear();render()">完成</button>`:`<button class="btn" onclick="sm=1;render()">批量选择 / 删除</button>`}</div>`:""}<div class="stg">${a.map(x=>`<button class="stc ${ssl.has(x.id)?"on":""}" aria-label="表情包" onclick="${sm?`stTog(${x.id})`:`sm=1;ssl=new Set([${x.id}]);render()`}"><img src="${x.u}" alt=""></button>`).join("")}</div>${a.length?"":'<div class="empty" style="margin:40px 0">还没有表情包</div>'}${note("聊天里点表情按钮，切到「表情包」就能发送。TA 回复后会按「表情包概率」随机发一张。")}`}
+{const L0=V.lib;let lt=0;window.setLt=i=>{lt=i;sm=0;ssl.clear();render()};V.lib=()=>{const tb=`<div class="chips" style="margin-bottom:6px"><button class="ch ${lt?"":"on"}" onclick="setLt(0)">字卡</button><button class="ch ${lt?"on":""}" onclick="setLt(1)">表情包 ${IL.sticker.length}</button></div>`;if(lt)return hd("字卡库")+`<div class="pad">${tb}${stickerUI()}</div>`;return L0().replace('<div class="pad">',()=>'<div class="pad">'+tb)}}
+function sendStk(id){const x=IL.sticker.find(v=>v.id===id),o=$("#mn");o&&o.remove();if(x)pushMsg({img:x.u,stk:1})}
+function emo(t=0){ov(`<div class="egrid liq" style="display:block"><div class="chips"><button class="ch ${t?"":"on"}" onclick="$('#mn').remove();emo(0)">表情</button><button class="ch ${t?"on":""}" onclick="$('#mn').remove();emo(1)">表情包</button></div>${t?(IL.sticker.length?`<div class="stg">${IL.sticker.map(x=>`<button class="stc" aria-label="发送表情包" onclick="sendStk(${x.id})"><img src="${x.u}" alt=""></button>`).join("")}</div>`:'<div class="empty" style="margin:30px 0">还没有表情包，到字卡库添加</div>'):`<div class="egrid" style="box-shadow:none;background:none;border:0;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none">${EM.map(e=>`<button onclick="$('#inp').value+='${e}';$('#mn').remove()">${e}</button>`).join("")}</div>`}</div>`)}
+function useAv(w,id){const x=IL["av"+w].find(v=>v.id===id);if(x){S[w].a=x.u;save();render()}}
+const avPool=(w,t)=>{const k="av"+w,a=IL[k];return`${sec(t+"头像库")}<div class="acts"><button onclick="pickMany(u=>addImgs('${k}',u),300)">添加头像（可多选）</button></div><div class="stg">${a.map(x=>`<div class="stw"><button class="stc" aria-label="使用这张头像" onclick="useAv('${w}',${x.id})"><img src="${x.u}" alt=""></button><button class="xd" aria-label="删除这张头像" onclick="delImgs([${x.id}])">×</button></div>`).join("")}</div>${a.length?"":note("添加后点一张就能换上，右上角 × 删除。")}`};
+{const o=V.sprof;V.sprof=()=>o().replace(/<\/div>\s*$/,()=>avPool("sy","Sylus ")+avPool("me","我的")+sec("随机换头像")+grp(swt("avs","Sylus 随机换自己的头像")+swt("avm","Sylus 随机换我的头像")+num("av1","最短间隔（分钟）")+num("av2","最长间隔（分钟）"))+note("<b>只在页面开着时运行</b>，从上面的头像库里随机挑，库里至少要有 2 张。")+"</div>")}
+function avTick(){const st=S.set;if(!(st.avs||st.avm))return;S.nx=S.nx||{};const now=Date.now();if(now<(S.nx.av||0))return;if(S.nx.av){let ch=0;for(const[f,w]of[["avs","sy"],["avm","me"]]){const a=IL["av"+w];if(st[f]&&a.length>1){S[w].a=R(a.filter(x=>x.u!==S[w].a)).u;ch=1}}if(ch){save();if(cur==="chat")drawChat();else if(cur==="home"||cur==="sprof")render()}}S.nx.av=now+ri(st.av1,Math.max(st.av1,st.av2))*6e4;save()}
+setInterval(avTick,20000);
+const wpRow=(t,k,w)=>`<button class="li" onclick="pick(d=>{S.${k}=d;save();toast('已更换')},${w})"><span>更换${t}</span></button><button class="li" onclick="S.${k}='';save();toast('已移除')"><span>移除${t}</span></button>`;
+V.sbg=()=>`${hd("壁纸设置","","prefs")}<div class="pad">${sec("主页壁纸")}${grp(wpRow("主页壁纸","wall",900))}${sec("聊天壁纸")}${grp(wpRow("聊天壁纸","cw",900))}${sec("朋友圈封面")}${grp(wpRow("朋友圈封面","cover",900))}${sec("来电壁纸")}<div class="acts"><button onclick="pickMany(u=>addImgs('callwall',u),900)">添加来电壁纸（可多选）</button></div><div class="stg" style="grid-template-columns:repeat(3,1fr)">${IL.callwall.map(x=>`<div class="stw"><div class="stc" style="aspect-ratio:9/16;padding:0"><img src="${x.u}" style="width:100%;height:100%;object-fit:cover" alt=""></div><button class="xd" aria-label="删除" onclick="delImgs([${x.id}])">×</button></div>`).join("")}</div>${note("来电和拨出时，会从这里随机抽一张做背景。")}</div>`;
+let SWR=null,ip=null,WL=null;
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").then(()=>navigator.serviceWorker.ready).then(r=>{SWR=r}).catch(()=>{})}
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();ip=e;if(cur==="snotif")render()});
+function notify(title,body,tag){const st=S.set;if(!st.nt||!("Notification" in window)||Notification.permission!=="granted")return;if(!document.hidden&&!st.ntf)return;const o={body,icon:"icon-192.png",badge:"icon-192.png",tag};if(SWR)SWR.showNotification(title,o).catch(()=>{});else{try{new Notification(title,o)}catch(e){}}}
+{const _ps=proSend;proSend=function(){const n=S.chat.length;_ps();if(S.set.ntm)notify(S.sy.n,(S.chat[n]||{}).t||"发来新消息","m")}}
+{const _t=toast;toast=function(t){_t(t);const st=S.set;if(String(t).includes("收到一封来信")&&st.ntl)notify(S.sy.n,"收到一封来信","l");else if(String(t).endsWith("发了一条动态")&&st.ntp)notify(S.sy.n,"发了一条动态","p")}}
+async function wlSet(on){S.set.wl=on?1:0;save();try{if(on){if(!("wakeLock" in navigator)){toast("这个浏览器不支持屏幕常亮");return}WL=await navigator.wakeLock.request("screen");WL.addEventListener("release",()=>{WL=null})}else if(WL){await WL.release();WL=null}}catch(e){toast("没能开启屏幕常亮")}}
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&S.set.wl&&!WL)wlSet(1)});
+function testNt(){const f=S.set.ntf;S.set.ntf=1;notify(S.sy.n,"这是一条测试通知","t");S.set.ntf=f}
+V.snotif=()=>{const np="Notification" in window?Notification.permission:"unsupported",st=S.set,sa=matchMedia("(display-mode: standalone)").matches;
+ setTimeout(()=>{const e=$("#sq");if(e&&navigator.storage&&navigator.storage.estimate)navigator.storage.estimate().then(r=>{e.textContent=`已用 ${(r.usage/1048576).toFixed(1)} MB / 约 ${(r.quota/1048576).toFixed(0)} MB`}).catch(()=>{})},0);
+ return`${hd("通知与后台","","prefs")}<div class="pad">${sec("通知")}${grp(`<div class="f"><label>通知权限</label><span style="min-width:90px">${{granted:"已允许",denied:"已拒绝",default:"未设置",unsupported:"不支持"}[np]}</span></div>`+swt("nt","开启通知")+swt("ntf","页面开着时也提醒")+swt("ntm","TA 主动发消息")+swt("ntl","来信")+swt("ntp","朋友圈动态"))}${np==="default"?`<button class="btn" onclick="Notification.requestPermission().then(()=>render())">请求通知权限</button>`:""}${np==="granted"?`<button class="btn" onclick="testNt()">发一条测试通知</button>`:""}${np==="denied"?note("通知被浏览器拒绝了，要到浏览器的站点设置里重新允许。"):""}${np==="unsupported"?note("这个浏览器不支持通知。"):""}${note("安卓 Chrome 的通知需要先<b>安装到桌面</b>并启用 sw.js。通知只在「页面还活着」时才会触发（见下方说明）。")}
+ ${sec("保持常亮")}${grp(`<div class="f"><label>屏幕保持常亮（页面开着时）</label><input type="checkbox" ${st.wl?"checked":""} onchange="wlSet(this.checked)"></div>`)}${note("开启后，页面在前台时屏幕不会自动熄灭，会更费电。")}
+ ${sec("安装到桌面")}${grp(`<div class="f"><label>当前状态</label><span style="min-width:100px">${sa?"已作为应用运行":"网页模式"}</span></div><div class="f"><label>后台服务（sw.js）</label><span style="min-width:100px">${SWR?"已启用":"未启用"}</span></div>`)}${!sa&&ip?`<button class="btn" onclick="ip.prompt()">安装到桌面</button>`:""}${!sa&&!ip?note("也可以用浏览器菜单里的「添加到主屏幕」。manifest.webmanifest、sw.js 和两张图标要和网页放在同一目录。"):""}
+ ${sec("存储")}${grp(`<div class="f"><label>已使用</label><span id="sq" style="min-width:150px">计算中…</span></div>`)}
+ ${sec("关于后台运行")}${note("<b>页面开着或在后台标签页</b>：定时任务可以运行，但系统可能随时回收。<b>页面完全关闭</b>：浏览器做不到，需要服务器 + Web Push（Cloudflare Workers 的免费额度够用），这是下一阶段。我没有做强行保活，那类方法不稳定，还耗电。")}</div>`};
+loadImgs();
+/* ===== v10: shared bubble settings, random rename + history, phone, questionnaire ===== */
+Object.assign(D.set,{nms:0,nmm:0,nm1:60,nm2:480});Object.assign(D.lex,{nsy:"",nme:""});S.set={...D.set,...S.set};S.lex={...D.lex,...S.lex};Object.assign(M,{nm1:[1,10080],nm2:[1,10080]});
+const _fx3=fix;fix=function(){_fx3();for(const k of["o","r","bd","sh","bl","fs","px","py","lh","ls","fw","tl"])S.bb.s[k]=S.bb.m[k];S.qz=S.qz||[];S.calls=S.calls||[];S.pl=S.pl||[]};fix();
+const bk=(k,l,a,b)=>`<div class="f"><label>${l}</label><span>${S.bb.m[k]}</span><input type="range" min="${a}" max="${b}" value="${S.bb.m[k]}" oninput="S.bb.m.${k}=S.bb.s.${k}=+this.value;save();sty();this.previousElementSibling.textContent=this.value"></div>`;
+V.bubble=()=>`${hd("气泡美化","","prefs")}<div class="pad"><div class="pv glass"><div class="row r">${av("me",40)}<div class="mw"><div class="bub me">我的气泡预览</div><div class="meta">6:56 PM</div></div></div><div class="row l">${av("sy",40)}<div class="mw"><div class="bub sy">Sylus 的气泡预览</div><div class="meta">6:57 PM<span class="tag">平静</span></div></div></div></div>
+${sec("颜色")}${bc("m","c","我的气泡颜色","#2f86f6")}${bc("s","c","Sylus 的气泡颜色","#ffffff")}${bc("m","fc","我的字体颜色","#ffffff")}${bc("s","fc","Sylus 的字体颜色","#1c1c20")}
+${sec("形状与质感（双方通用）")}${bk("o","透明度",20,100)}${bk("r","圆角",0,30)}${bk("tl","尾角圆角",0,20)}${bk("bd","边框",0,4)}${bk("sh","阴影",0,40)}${bk("bl","模糊",0,30)}
+${sec("文字（双方通用）")}${bk("fs","字体大小",12,22)}${bk("lh","行高（15 = 1.5 倍）",10,24)}${bk("ls","字间距（0.1px）",-5,30)}${bk("fw","字重（3 细，4 常规，6 粗）",3,7)}<div class="f col"><label>气泡字体</label><div class="chips" style="flex-wrap:wrap">${FF.map((f,i)=>`<button class="ch ffc ${S.bb.ff===f[0]?"on":""}" onclick="setFF(${i})">${f[1]}</button>`).join("")}</div></div>
+${sec("大小与间距（双方通用）")}${bt("bw","气泡最大宽度（%）",50,92)}${bk("px","左右内边距",6,30)}${bk("py","上下内边距",4,20)}${bt("gap","气泡间距",6,36)}${bt("av","头像大小",28,60)}
+${sec("时间")}${bt("ts","时间文字大小",10,16)}<div class="f"><label>时间文字颜色</label><input type="color" value="${S.bb.tc||"#8d8d96"}" oninput="S.bb.tc=this.value;save();sty()"></div><button class="btn" onclick="szReset()">恢复默认</button></div>`;
+function szReset(){for(const k of["m","s"])Object.assign(S.bb[k],{c:"",fc:"",o:100,r:20,bd:1,sh:14,bl:12,fs:16,px:14,py:10,w:0,lh:15,ls:0,fw:4,tl:6});Object.assign(S.bb,{bw:74,gap:16,av:40,ts:12,tc:"",ff:""});save();sty();render();toast("已恢复默认")}
+/* random rename / avatar with history */
+function logChg(w,k,o){S.pl.unshift({w,k,o,t:Date.now()});S.pl=S.pl.slice(0,8)}
+function undoChg(i){const c=S.pl[i];if(!c)return;S[c.w][c.k]=c.o;S.pl.splice(i,1);save();render()}
+function undoAll(){for(const c of S.pl)S[c.w][c.k]=c.o;S.pl=[];save();render()}
+const chgUI=()=>S.pl.length?grp(S.pl.map((c,i)=>`<div class="f"><label>${c.w==="sy"?esc(S.sy.n):"我"}的${c.k==="n"?"昵称，改自 "+esc(c.o):"头像"}</label>${c.k==="a"&&c.o?`<img src="${c.o}" alt="" style="width:34px;height:34px;border-radius:50%;object-fit:cover">`:""}<button class="pill" onclick="undoChg(${i})">撤销</button></div>`).join(""))+`<button class="btn" onclick="two(this,'再点一次，全部撤销',undoAll)">全部撤销</button>`:note("还没有变更。");
+function refAfter(){save();if(cur==="chat")drawChat();else if(["home","sprof","phone"].includes(cur))render()}
+function avTick(){const st=S.set;if(!(st.avs||st.avm))return;S.nx=S.nx||{};const now=Date.now();if(now<(S.nx.av||0))return;if(S.nx.av){let ch=0;for(const[f,w]of[["avs","sy"],["avm","me"]]){const a=IL["av"+w];if(st[f]&&a.length>1){logChg(w,"a",S[w].a);S[w].a=R(a.filter(x=>x.u!==S[w].a)).u;ch=1}}if(ch)refAfter()}S.nx.av=now+ri(st.av1,Math.max(st.av1,st.av2))*6e4;save()}
+function nmTick(){const st=S.set;if(!(st.nms||st.nmm))return;S.nx=S.nx||{};const now=Date.now();if(now<(S.nx.nm||0))return;if(S.nx.nm){let ch=0;for(const[f,w,k]of[["nms","sy","nsy"],["nmm","me","nme"]]){const a=L(k).filter(x=>x!==S[w].n);if(st[f]&&a.length){logChg(w,"n",S[w].n);S[w].n=R(a);ch=1}}if(ch)refAfter()}S.nx.nm=now+ri(st.nm1,Math.max(st.nm1,st.nm2))*6e4;save()}
+setInterval(nmTick,20000);
+{const o=V.sprof;V.sprof=()=>o().replace(/<\/div>\s*$/,()=>sec("随机改昵称")+grp(swt("nms","Sylus 随机改自己的昵称")+swt("nmm","Sylus 随机改我的昵称")+num("nm1","最短间隔（分钟）")+num("nm2","最长间隔（分钟）"))+tx("lex","nsy","Sylus 昵称候选，空格分隔")+tx("lex","nme","我的昵称候选，空格分隔")+note("<b>只在页面开着时运行</b>，候选为空就不会改。头像和昵称的每次随机改动都记在下面，可以撤销。")+sec("变更记录")+chgUI()+"</div>")}
+/* phone */
+Object.assign(I,{endc:'<path d="M4 14c5-4.5 11-4.5 16 0l-1.8 2.8-3.2-1v-2.3a8.5 8.5 0 00-6 0v2.3l-3.2 1z"/>',acc:'<path d="M7 4h3l1.5 4-2 1.5a10 10 0 005 5l1.5-2 4 1.5v3a2 2 0 01-2 2A14 14 0 015 6a2 2 0 012-2z"/>'});
+let CALL=null;
+const fmtD=n=>String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0");
+const RT={cancel:"已取消",busy:"对方忙线中",rejected:"对方拒绝了通话",noans:"对方未接通",missed:"未接来电",decline:"已拒接",hung:"已挂断",hungby:"对方挂断"};
+const rtxt=c=>c.dur?(RT[c.r]||"已接通")+"，"+fmtD(c.dur):(RT[c.r]||"已结束");
+function capDraw(){const e=$("#caps");if(e&&CALL){e.innerHTML=CALL.cap.slice(-4).map(x=>`<div class="cap ${x.w}">${esc(x.t)}</div>`).join("");e.scrollTop=e.scrollHeight}}
+function clDraw(){const c=CALL;if(!c)return;let o=$("#cl");if(!o){o=document.createElement("div");o.id="cl";document.body.append(o)}o.style.backgroundImage=c.bg?`url(${c.bg})`:"";
+ const top=`<div class="clt">${av("sy",c.st==="talk"?84:116)}<b>${esc(S.sy.n)}</b><span id="cs">${c.st==="talk"?fmtD(c.sec):c.dir==="out"?"呼叫中…":"邀请你语音通话"}</span></div>`;
+ const mid=c.st==="talk"?`<div class="caps" id="caps"></div><div class="cl-i"><input id="cli" placeholder="说点什么…" aria-label="说点什么" onkeydown="if(event.key==='Enter')clSay()"><button class="cbtn sm" aria-label="发送" onclick="clSay()">${ic("sendi")}</button></div>`:"<span></span>";
+ const bt2=c.st==="ring"&&c.dir==="in"?`<div class="clb"><button class="cbtn red" aria-label="拒接" onclick="endCall('decline')">${ic("endc")}</button><button class="cbtn grn" aria-label="接听" onclick="answerCall()">${ic("acc")}</button></div>`:`<div class="clb"><button class="cbtn red" aria-label="挂断" onclick="endCall(CALL.st==='talk'?'hung':'cancel')">${ic("endc")}</button></div>`;
+ o.innerHTML=`<div class="cl-in"><button class="cmin" aria-label="缩小通话" onclick="CALL.min=1;clDraw()">${ic("dn")}</button>${top}${mid}${bt2}</div>`;capDraw()}
+const newCall=d=>({dir:d,st:"ring",bg:IL.callwall.length?R(IL.callwall).u:"",cap:[],sec:0,n:0});
+function startCall(){if(CALL)return;CALL=newCall("out");clDraw();CALL.rt=setTimeout(()=>{if(!CALL||CALL.st!=="ring")return;const st=S.set;if(P(st.busy))return endCall("busy");if(P(st.rej))return endCall("rejected");if(P(st.ans))return answerCall();endCall("noans")},ri(2,5)*1000)}
+function incoming(){if(CALL)return;CALL=newCall("in");clDraw();notify(S.sy.n,"来电","c");CALL.rt=setTimeout(()=>{if(CALL&&CALL.st==="ring")endCall("missed")},25000)}
+function answerCall(){const c=CALL;if(!c)return;clearTimeout(c.rt);c.st="talk";c.t1=Date.now();clDraw();
+ c.iv=setInterval(()=>{c.n++;c.sec=Math.round((Date.now()-c.t1)/1000);const e=$("#cs");if(e)e.textContent=fmtD(c.sec);const e2=$("#csm");if(e2)e2.textContent=fmtD(c.sec);if(c.n%15===0&&P(S.set.hang))endCall("hungby")},1000);
+ const talk=()=>{if(CALL!==c)return;c.cap.push({w:"sy",t:gen(cnt())});capDraw();c.tt=setTimeout(talk,ri(6,14)*1000)};c.tt=setTimeout(talk,ri(1,3)*1000)}
+function clSay(){const e=$("#cli"),v=e&&e.value.trim();if(!v||!CALL)return;e.value="";CALL.cap.push({w:"me",t:v});capDraw();if(S.set.on)setTimeout(()=>{if(CALL){CALL.cap.push({w:"sy",t:gen(cnt())});capDraw()}},ri(1,3)*1000)}
+function endCall(r){const c=CALL;if(!c)return;clearTimeout(c.rt);clearTimeout(c.tt);clearInterval(c.iv);CALL=null;const o=$("#cl");o&&o.remove();const dur=c.t1?Math.round((Date.now()-c.t1)/1000):0,rec={dir:c.dir,r,ts:Date.now(),dur};S.calls.unshift(rec);S.calls=S.calls.slice(0,100);S.chat.push({w:"sys",t:`语音通话：${rtxt(rec)}`,ts:Date.now()});save();if(cur==="phone")render();else if(cur==="chat")drawChat();else toast(rtxt(rec))}
+{const rr=replyRound;replyRound=function(m,imm,force){rr(m,imm,force);if(P(S.set.cin))setTimeout(incoming,4000+ri(1,5)*1000)}}
+{const ps=proSend;proSend=function(){ps();if(P(S.set.cin))setTimeout(incoming,ri(2,6)*1000)}}
+V.phone=()=>`${hd("电话")}<div class="pad"><div class="callcard glass">${av("sy",84)}<b>${esc(S.sy.n)}</b><small>@${esc(S.sy.id)}</small><button class="cbtn grn" aria-label="拨打电话" onclick="startCall()">${ic("acc")}</button></div>${grp(li("phone","通话设置","在字卡统一设置的「通话」里","ct=3;go('cardset')")+li("moments","来电壁纸","在壁纸设置里添加","go('sbg')"))}${sec("通话记录")}${S.calls.length?grp(S.calls.map(c=>`<div class="f"><label>${c.dir==="out"?"呼出":"来电"}，${rtxt(c)}</label><span style="min-width:96px">${new Date(c.ts).toLocaleString("zh-CN",{month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit",hour12:false})}</span></div>`).join(""))+`<button class="btn" onclick="two(this,'再点一次，清空通话记录',()=>{S.calls=[];save();render()})">清空通话记录</button>`:'<div class="empty" style="margin:30px 0">还没有通话记录</div>'}</div>`;
+/* questionnaire */
+let qv="list",qi=-1,qd=null,qa=[];
+const QT={single:"单选",multi:"多选",text:"文字"},cp=o=>JSON.parse(JSON.stringify(o));
+function qBack(){qv="list";qd=null;render()}
+function qNew(){qi=-1;qd={title:"",qs:[{t:"",type:"single",opts:["",""]}]};qv="edit";render()}
+function qEdit(i){qi=i;qd=cp(S.qz[i]);qv="edit";render()}
+function qO(i,v){qd.qs[i].opts=v.split(/\r?\n/)}
+function qSave(){const t=qd.title.trim(),qs=qd.qs.map(q=>({t:q.t.trim(),type:q.type,opts:q.type==="text"?[]:q.opts.map(x=>x.trim()).filter(Boolean)}));if(!t||!qs.length){toast("请填写标题并至少添加一题");return}if(qs.some(q=>!q.t||(q.type!=="text"&&q.opts.length<2))){toast("每题要有题目，选择题至少 2 个选项");return}if(qi<0)S.qz.unshift({id:Date.now(),title:t,ts:Date.now(),qs,ans:[]});else Object.assign(S.qz[qi],{title:t,qs});save();toast("已保存");qBack()}
+function qDel(i){S.qz.splice(i,1);save();render()}
+function qFill(i){qi=i;qa=S.qz[i].qs.map(q=>q.type==="text"?"":[]);qv="fill";render()}
+function qRes(i){qi=i;qv="res";render()}
+function qSel(i,k,b){const q=S.qz[qi].qs[i];if(q.type==="single"){qa[i]=[k];b.parentElement.querySelectorAll(".opt").forEach(x=>x.classList.remove("on"));b.classList.add("on")}else{const a=qa[i],p=a.indexOf(k);p<0?a.push(k):a.splice(p,1);b.classList.toggle("on",p<0)}}
+function taAns(z){return{w:"sy",ts:Date.now()+1,qs:cp(z.qs),a:z.qs.map(q=>{if(q.type==="text")return gen(ri(1,4));if(q.type==="single")return[ri(0,q.opts.length-1)];const a=q.opts.map((_,k)=>k).filter(()=>Math.random()<.5);return a.length?a:[ri(0,q.opts.length-1)]})}}
+function qSubmit(ta){const z=S.qz[qi];if(z.qs.some((q,i)=>q.type!=="text"&&!qa[i].length)){toast("还有选择题没答");return}z.ans.unshift({w:"me",ts:Date.now(),qs:cp(z.qs),a:cp(qa)});if(ta)z.ans.unshift(taAns(z));save();qv="res";render();toast(ta?"已提交，TA 也答了":"已提交")}
+function qTA(){const z=S.qz[qi];z.ans.unshift(taAns(z));save();render()}
+const qh=t=>`<div class="top"><button class="rb" aria-label="返回" onclick="${qv==="list"?"go('home')":"qBack()"}">${ic("back")}</button><b class="tt1">${t}</b></div>`;
+V.quiz=()=>{
+ if(qv==="edit")return qh(qi<0?"新建问卷":"编辑问卷")+`<div class="pad"><div class="f col"><label>问卷标题</label><input value="${esc(qd.title)}" placeholder="例如：测一测" oninput="qd.title=this.value"></div>${qd.qs.map((q,i)=>`<div class="paper"><div class="f col" style="padding:0;background:none"><label>第 ${i+1} 题</label><input value="${esc(q.t)}" placeholder="题目" oninput="qd.qs[${i}].t=this.value"><select style="max-width:none" aria-label="题型" onchange="qd.qs[${i}].type=this.value;render()">${Object.entries(QT).map(([k,n])=>`<option value="${k}" ${q.type===k?"selected":""}>${n}</option>`).join("")}</select>${q.type==="text"?"":`<textarea placeholder="选项，一行一个" oninput="qO(${i},this.value)">${esc(q.opts.join("\n"))}</textarea>`}<button class="btn" onclick="qd.qs.splice(${i},1);render()">删除这题</button></div></div>`).join("")}<div class="acts"><button onclick="qd.qs.push({t:'',type:'single',opts:['','']});render()">添加题目</button><button onclick="qSave()">保存问卷</button></div></div>`;
+ if(qv==="fill"){const z=S.qz[qi];return qh(esc(z.title))+`<div class="pad">${z.qs.map((q,i)=>`<div class="paper"><b>${i+1}. ${esc(q.t)}</b><small>　${QT[q.type]}</small>${q.type==="text"?`<textarea oninput="qa[${i}]=this.value" placeholder="写下你的回答"></textarea>`:`<div>${q.opts.map((o,k)=>`<button class="opt" onclick="qSel(${i},${k},this)"><b>${"ABCDEFGH"[k]||k+1}</b>${esc(o)}</button>`).join("")}</div>`}</div>`).join("")}<div class="acts"><button onclick="qSubmit(0)">提交</button><button onclick="qSubmit(1)">提交并让 TA 作答</button></div></div>`}
+ if(qv==="res"){const z=S.qz[qi];return qh("结果")+`<div class="pad"><div class="acts"><button onclick="qTA()">让 TA 作答</button><button onclick="qFill(${qi})">再填一次</button></div>${z.ans.length?z.ans.map(r=>`<div class="paper"><b>${r.w==="me"?"我":esc(S.sy.n)}</b><small>　${new Date(r.ts).toLocaleString("zh-CN",{month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit",hour12:false})}</small>${r.qs.map((q,i)=>`<p style="font-size:15px"><b>${i+1}. ${esc(q.t)}</b><br>${q.type==="text"?esc(r.a[i]||"（未填）"):(r.a[i]||[]).map(k=>esc(q.opts[k]||"")).join("、")||"（未选）"}</p>`).join("")}</div>`).join(""):'<div class="empty">还没有作答</div>'}<button class="btn" onclick="two(this,'再点一次，清空作答',()=>{S.qz[${qi}].ans=[];save();render()})">清空作答</button></div>`}
+ return qh("问卷")+`<div class="pad"><div class="acts"><button onclick="qNew()">新建问卷</button></div>${S.qz.length?S.qz.map((z,i)=>`<div class="paper"><b>${esc(z.title)}</b><p style="font-size:14px;margin:4px 0">${z.qs.length} 题，已作答 ${z.ans.length} 次</p><div class="acts"><button onclick="qFill(${i})">填写</button><button onclick="qRes(${i})">结果</button></div><div class="acts"><button onclick="qEdit(${i})">编辑</button><button onclick="two(this,'再点一次，删除',()=>qDel(${i}))">删除</button></div></div>`).join(""):'<div class="empty">还没有问卷，点上面新建一份</div>'}</div>`};
+{const g=go;go=function(v){if(v==="quiz"&&cur!=="quiz"){qv="list";qd=null}g(v)}}
 
+/* ===== v11: display and font size, call settings inside cardset ===== */
+D.ui={t:90,z:100,f:15};
+{const f=fix;fix=function(){f();S.ui={...D.ui,...(S.ui||{})}};fix()}
+let _z=0;
+function applyZoom(){const z=S.ui.z;if(z===_z)return;_z=z;const m=document.querySelector('meta[name=viewport]');if(m)m.content=z===100?"width=device-width,initial-scale=1,viewport-fit=cover":`width=${Math.round(screen.width*100/z)},viewport-fit=cover`}
+{const y=sty;sty=function(){y();const r=document.documentElement.style,u=S.ui;r.setProperty("--tz",u.t/100);r.setProperty("--cf",u.f+"px");applyZoom()}}
+const ds=(k,l,a,b,u)=>`<div class="f"><label>${l}</label><span>${S.ui[k]}${u}</span><input type="range" min="${a}" max="${b}" value="${S.ui[k]}" oninput="S.ui.${k}=+this.value;save();sty();this.previousElementSibling.textContent=this.value+'${u}'"></div>`;
+function dsReset(){S.ui={...D.ui};_z=0;save();sty();render();toast("已恢复默认")}
+V.sdisp=()=>`${hd("显示与字体","","prefs")}<div class="pad"><div class="paper"><small>11月26日 · 预览</small><p>今天天气真好，想和你一起去散步。</p></div>${sec("文字")}${grp(ds("t","整体字体大小",70,130,"%")+ds("f","正文字号（朋友圈、日记、信箱）",12,22,"px"))}${note("整体字体大小会缩放几乎所有界面文字。聊天气泡的字号在「气泡美化」里单独调。")}${sec("显示")}${grp(ds("z","显示大小",80,120,"%"))}${note("显示大小会整体放大或缩小界面。部分浏览器改完要刷新页面才生效，电脑浏览器不生效。")}<button class="btn" onclick="two(this,'再点一次，恢复默认',dsReset)">恢复默认</button></div>`;
+V.callset=()=>{ct=3;return V.cardset()};
+sty();
+
+/* ===== v11: voice cards ===== */
 Object.assign(D.set,{vn:1});S.set={...structuredClone(D.set),...S.set};
 async function vput(f){const d=await idb(),t=d.transaction("voices","readwrite"),q=t.objectStore("voices").add({b:f}),id=await new Promise(ok=>q.onsuccess=()=>ok(q.result));await new Promise(ok=>t.oncomplete=ok);return id}
 async function vget(id){const d=await idb();return new Promise(ok=>{const q=d.transaction("voices").objectStore("voices").get(id);q.onsuccess=()=>ok(q.result&&q.result.b);q.onerror=()=>ok(null)})}
@@ -473,5 +672,21 @@ const vwave=d=>`${ic("play")}<i></i><i></i><i></i><i></i><i></i><i></i><small>${
 const vrow=(x,i)=>x.a?`<div class="vrow"><button class="vbar" aria-label="播放语音" onclick="vplay(${x.a})">${vwave(x.d)}</button><button class="ch" onclick="vpick(${i})">替换</button><button class="ch" onclick="two(this,'再点一次删除语音',()=>vrm(${i}))">删除语音</button></div>`:`<div class="vrow"><button class="ch" onclick="vpick(${i})">添加语音</button></div>`;
 const genPool=()=>{const p=S.set.vn?S.cards:S.cards.filter(c=>!c.a);return p.length?p:S.cards};
 function voiceX(){const v=S.cards.filter(c=>c.a);if(v.length&&P(S.set.vo)){const c=R(v);return{w:"sy",t:c.t,a:c.a,d:c.d,ts:Date.now()}}}
-sty();{const h=location.hash.slice(1);go(V[h]?h:"home")}
+
+/* ===== v12 ===== */
+Object.assign(D.ui,{mav:54,mpa:40,nw:62,nh:54,nb:12,ni:22,nr:27,lb:1,gb:24,ga:55,ss:92,sk:88});fix();
+{const y=sty;sty=function(){y();const r=document.documentElement.style,u=S.ui,v=(k,x)=>r.setProperty(k,x);v("--tzg",u.t/100);v("--ss",u.ss/100);v("--sk",u.sk/100);v("--mav",u.mav+"px");v("--mpa",u.mpa+"px");v("--nw",u.nw+"%");v("--nh",u.nh+"px");v("--nb",u.nb+"px");v("--ni",u.ni+"px");v("--nr",u.nr+"px");v("--gbl",u.gb+"px");v("--ga",u.ga/100);document.body.classList.toggle("nolbl",!u.lb)}}
+V.sdisp=()=>`${hd("显示与字体","","prefs")}<div class="pad"><div class="paper"><small>11月26日 · 预览</small><p>今天天气真好，想和你一起去散步。</p></div>
+${sec("文字")}${grp(ds("t","整体字体大小",70,130,"%")+ds("f","正文字号（朋友圈、日记、信箱）",12,22,"px"))}
+${sec("设置页（字卡统一设置、总体设置等）")}${grp(ds("ss","设置页文字大小",70,120,"%")+ds("sk","设置页板块大小",70,120,"%"))}
+${sec("朋友圈头像")}${grp(ds("mav","封面头像大小",36,90,"px")+ds("mpa","动态头像大小",28,60,"px"))}
+${sec("底部导航栏")}${grp(ds("nw","宽度",40,100,"%")+ds("nh","高度",44,76,"px")+ds("nb","离底部距离",4,40,"px")+ds("ni","图标大小",16,30,"px")+ds("nr","圆角",12,36,"px")+`<div class="f"><label>显示文字标签</label><input type="checkbox" ${S.ui.lb?"checked":""} onchange="S.ui.lb=+this.checked;save();sty()"></div>`)}
+${sec("液态玻璃")}${grp(ds("gb","模糊程度",0,40,"px")+ds("ga","玻璃透明度（越大越白）",15,90,"%"))}${note("玻璃用在导航栏、顶栏、输入栏、弹窗、卡片和按钮上。颜色看不出玻璃感时，把透明度调低一点。")}
+${sec("显示")}${grp(ds("z","显示大小",80,120,"%"))}${note("显示大小会整体放大或缩小界面。部分浏览器改完要刷新页面才生效，电脑浏览器不生效。")}<button class="btn" onclick="two(this,'再点一次，恢复默认',dsReset)">恢复默认</button></div>`;
+Object.assign(I,{dn:'<path d="M6 9l6 6 6-6"/>'});
+const _cd=clDraw;clDraw=function(){const c=CALL;if(!c)return;if(c.min){const o=$("#cl");o&&o.remove();drawMini();return}const m=$("#clm");m&&m.remove();_cd()};
+function drawMini(){const c=CALL;let m=$("#clm");if(!m){m=document.createElement("div");m.id="clm";document.body.append(m)}m.innerHTML=`<span class="mi" onclick="CALL.min=0;clDraw()">${av("sy",30)}<span><b>${esc(S.sy.n)}</b><small id="csm">${c.st==="talk"?fmtD(c.sec):c.dir==="out"?"呼叫中…":"邀请你通话"}</small></span></span>${c.st==="ring"&&c.dir==="in"?`<button class="cbtn red xs" aria-label="拒接" onclick="endCall('decline')">${ic("endc")}</button><button class="cbtn grn xs" aria-label="接听" onclick="answerCall()">${ic("acc")}</button>`:`<button class="cbtn red xs" aria-label="挂断" onclick="endCall(CALL.st==='talk'?'hung':'cancel')">${ic("endc")}</button>`}`}
+const _ec=endCall;endCall=function(r){const m=$("#clm");m&&m.remove();_ec(r)};
+sty();
+{const h=location.hash.slice(1);go(V[h]?h:"home")}
 </script></body></html>
